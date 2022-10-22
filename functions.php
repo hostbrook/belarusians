@@ -25,3 +25,5 @@ add_action('login_enqueue_scripts', 'BCALoginCSS');
 function BCALoginCSS(){
     wp_enqueue_style('fpp_login_styles', get_theme_file_uri('/css/bca_admin.css'));
 }
+
+add_filter( 'login_display_language_dropdown', '__return_false' );
