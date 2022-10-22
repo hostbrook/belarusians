@@ -96,11 +96,15 @@
                     <!-- Tags -->
                     <div class="sidebar-item tags">
                         <div class="section-title" style="padding-top:40px;padding-bottom:20px;">
-                            <h2 style="font-size: 16px;color:#aaaaaa;font-weight: 600;">Тэгi</h2>
+                            <h2 style="font-size: 16px;color:#aaaaaa;font-weight: 600;">Важкiя Тэгі</h2>
                         </div>
                         <ul class="mt-3">
                         <?php
-                            $tags = get_tags();
+                            $tags = get_tags([
+                                'number' => 20,
+                                'orderby' => 'count', 
+                                'order' => 'DESC'
+                            ]);
                             if ( $tags ) :
                                 foreach ( $tags as $tag ) : ?>
                                     <li><a href="<?php echo esc_url( get_tag_link( $tag->term_id ) ); ?>" title="<?php echo esc_attr( $tag->name ); ?>"><?php echo esc_html( $tag->name ); ?></a></li>

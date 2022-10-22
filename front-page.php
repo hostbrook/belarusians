@@ -209,14 +209,18 @@ get_header(); ?>
                         </div>
 
                         <div class="section-title pt-5 pb-3">
-                            <h2 style="font-size: 16px;color:#aaaaaa;font-weight: 600;">Тэгі</h2>
+                            <h2 style="font-size: 16px;color:#aaaaaa;font-weight: 600;">Важкiя Тэгі</h2>
                         </div>
 
                         <!-- Tags -->
                         <div class="tags">
                             <ul class="mt-3">
                             <?php
-                            $tags = get_tags();
+                            $tags = get_tags([
+                                'number' => 20,
+                                'orderby' => 'count', 
+                                'order' => 'DESC'
+                            ]);
                             if ( $tags ) :
                                 foreach ( $tags as $tag ) : ?>
                                     <li><a href="<?php echo esc_url( get_tag_link( $tag->term_id ) ); ?>" title="<?php echo esc_attr( $tag->name ); ?>"><?php echo esc_html( $tag->name ); ?></a></li>
