@@ -23,5 +23,5 @@ function BCAHeaderUrl(){
 
 add_action('login_enqueue_scripts', 'BCALoginCSS');
 function BCALoginCSS(){
-    wp_enqueue_style('fpp_login_styles', get_theme_file_uri('/assets/css/bca_admin.css'));
+    wp_enqueue_style('fpp_login_styles', get_theme_file_uri('/css/bca_admin.css'));
 }
