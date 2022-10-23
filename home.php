@@ -49,8 +49,9 @@ get_header(); ?>
         
                             <div class="meta-top">
                                 <ul>
-                                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('d M, Y'); ?></time></a></li>
-                                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html"><?= get_comments_number(); ?> Каментарыяў</a></li>
+                                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><time datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('d M, Y'); ?></time></a></li>
+                                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="#"><?= get_comments_number(); ?></a></li>
+                                    <li class="d-flex align-items-center"><i class="bi bi-eye"></i> <a href="#"><?= hb_get_post_view(); ?></a></li>
                                 </ul>
                             </div>
         

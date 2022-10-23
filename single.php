@@ -5,7 +5,9 @@
 get_header();
 
 while(have_posts()) {
-    the_post(); ?>
+    the_post(); 
+    hb_set_post_view();
+    ?>
 
 <main id="main">
 
@@ -45,9 +47,10 @@ while(have_posts()) {
     
                     <div class="meta-top">
                         <ul>
-                            <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html"><?php the_author_posts_link(); ?></a></li>
-                            <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('d M, Y'); ?></time></a></li>
-                            <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html"><?= get_comments_number(); ?> Каментарыяў</a></li>
+                            <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="#"><?php the_author_posts_link(); ?></a></li>
+                            <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><time datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('d M, Y'); ?></time></a></li>
+                            <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="#"><?= get_comments_number(); ?> Каментарыяў</a></li>
+                            <li class="d-flex align-items-center"><i class="bi bi-eye"></i> <a href="#"><?= hb_get_post_view(); ?> Праглядаў</a></li>
                         </ul>
                     </div><!-- End meta top -->
     

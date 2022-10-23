@@ -15,7 +15,9 @@ function theme_features(){
 }
 add_action('after_setup_theme', 'theme_features');
 
-// Customize Login Screen
+/**
+ * Customize Login Screen 
+ */ 
 add_filter('login_headerurl', 'BCAHeaderUrl');
 function BCAHeaderUrl(){
     return esc_url(site_url('/'));
@@ -27,3 +29,30 @@ function BCALoginCSS(){
 }
 
 add_filter( 'login_display_language_dropdown', '__return_false' );
+
+/**
+ * Simple Count Post Views
+ */
+function hb_get_post_view() {
+    $count = get_post_meta( get_the_ID(), 'post_views_count', true );
+    if ($count == '') $count = 0;
+    return $count;
+}
+function hb_set_post_view() {
+    $key = 'post_views_count';
+    $post_id = get_the_ID();
+    $count = (int) get_post_meta( $post_id, $key, true );
+    $count++;
+    update_post_meta( $post_id, $key, $count );
+}
+function hb_posts_column_views( $columns ) {
+    $columns['post_views'] = 'Views';
+    return $columns;
+}
+function hb_posts_custom_column_views( $column ) {
+    if ( $column === 'post_views') {
+        echo hb_get_post_view();
+    }
+}
+add_filter( 'manage_posts_columns', 'hb_posts_column_views' );
+add_action( 'manage_posts_custom_column', 'hb_posts_custom_column_views' );

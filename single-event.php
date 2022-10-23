@@ -6,6 +6,7 @@ get_header();
 
 while(have_posts()) {
     the_post(); 
+    hb_set_post_view();
     $eventDate = new DateTime(get_field('event_date'));
     $today = date('Y-m-d H:i');
 ?>
@@ -52,6 +53,7 @@ while(have_posts()) {
                         <?php if ($today > get_field('event_date')): ?>
                             <span class="badge rounded-pill bg-danger">Event completed!</span>
                         <?php endif; ?></li>
+                        <li><i class="bi bi-eye"></i> <?= hb_get_post_view(); ?> Праглядаў</li>
                     </ul>
     
                     <div class="content">

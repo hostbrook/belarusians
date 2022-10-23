@@ -129,8 +129,8 @@ get_header(); ?>
                                         <ul>
                                             <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="<?php the_permalink(); ?>"><time datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('d M, Y'); ?></time></a></li>
                                             <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="<?php the_permalink(); ?>"><?= get_comments_number(); ?></a></li>
-                                            <li class="d-flex align-items-center"><i class="bi bi-hand-thumbs-up"></i> <a href="<?php the_permalink(); ?>">8</a></li>
-                                            <li class="d-flex align-items-center"><i class="bi bi-eye"></i> <a href="<?php the_permalink(); ?>">13</a></li>
+                                            <!--<li class="d-flex align-items-center"><i class="bi bi-hand-thumbs-up"></i> <a href="<?php the_permalink(); ?>">8</a></li>-->
+                                            <li class="d-flex align-items-center"><i class="bi bi-eye"></i> <a href="<?php the_permalink(); ?>"><?= hb_get_post_view(); ?></a></li>
                                         </ul>
                                     </div>
                                     <h3 class="post-title"><?php the_title(); ?></h3>

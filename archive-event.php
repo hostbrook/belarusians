@@ -56,6 +56,7 @@ get_header();
                             <?php if ($today > get_field('event_date')): ?>
                                 <span class="badge rounded-pill bg-danger">Event completed!</span>
                             <?php endif; ?></li>
+                            <li><i class="bi bi-eye"></i> <?= hb_get_post_view(); ?> Праглядаў</li>
                         </ul>
     
                         <div class="content">
