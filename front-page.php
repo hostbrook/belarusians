@@ -186,7 +186,7 @@ get_header(); ?>
                             <li><i class="bi bi-clock"></i> <?= $eventDate->format('F j, Y g:i a'); ?></li>
                         </ul>
 
-                        <?= has_excerpt() ? the_excerpt() : the_content(); ?>
+                        <?= has_excerpt() ? the_excerpt() : wp_trim_words(get_the_content(), 20); ?>
 
                         <p class="pb-4"><a href="<?php the_permalink(); ?>" class="primary-button">Чытаць болей</a></p>
 

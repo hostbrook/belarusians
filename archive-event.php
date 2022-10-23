@@ -59,7 +59,7 @@ get_header();
                         </ul>
     
                         <div class="content">
-                        <?= has_excerpt() ? the_excerpt() : the_content(); ?>
+                            <?= has_excerpt() ? the_excerpt() : wp_trim_words(get_the_content(), 20); ?>
                         </div>
         
                         <div class="read-more mt-auto align-self-end">
