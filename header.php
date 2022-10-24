@@ -32,7 +32,7 @@
   
 
   <!-- Template Main CSS File -->
-  <link href="<?= get_theme_file_uri('/css/bsa_main.css'); ?>?ver=20220930" rel="stylesheet"><!-- <?=rand(10,10000);?> -->
+  <link href="<?= get_theme_file_uri('/css/bsa_main.css'); ?>?ver=221024" rel="stylesheet"><!-- <?=rand(10,10000);?> -->
   <?php wp_head(); ?>
 
 </head>
@@ -43,7 +43,7 @@
     <div id="topbar" class="d-flex align-items-center fixed-top">
         <div class="container d-flex justify-content-between">
             <div class="contact-info d-flex align-items-center">
-                <i class="bi bi-envelope"></i> <a href="mailto:bca@belarusian.ca">bca@belarusian.ca</a>
+                <i class="bi bi-envelope"></i> <a href="mailto:bca@belarusian.ca">bca@belarusians.ca</a>
             </div>
             <div class="d-flex social-links align-items-center">
                 <a href="/" class="langbar">EN</a> | <a href="/" class="langbar">BE</a>

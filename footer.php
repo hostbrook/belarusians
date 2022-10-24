@@ -14,7 +14,7 @@
                             Toronto, ON<br>
                             Canada, M6H 3W7
                             <br><br>
-                            <strong>Email:</strong> bca@belarusian.ca<br>
+                            <strong>E-mail:</strong> bca@belarusians.ca<br>
                             </p>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
 
                 <div class="d-flex flex-column align-items-center align-items-lg-start">
                     <div class="copyright">
-                        <p>&copy;2022 <a class="credits" href="https://belarusian.ca">belarusian.ca</a></p>
+                        <p>&copy;2022 <a class="credits" href="https://belarusian.ca">belarusians.ca</a></p>
                     </div>
                 </div>
     
