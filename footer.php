@@ -46,10 +46,11 @@
                             <input type="email" name="email" placeholder="Ваш E-mail"><input type="submit" value="Падпісацца">
                         </form>
                         <div class="social-links mt-3">
-                            <a href="http://twitter.com/belaruscanada"><i class="bx bxl-twitter"></i></a>
-                            <a href="http://facebook.com/belarusian.canadian.alliance"><i class="bx bxl-facebook"></i></a>
-                            <a href="https://www.linkedin.com/company/belarusian-canadian-alliance"><i class="bx bxl-linkedin"></i></a>
-                            <a href="https://www.instagram.com/belaruscanada/"><i class="bx bxl-instagram"></i></a>
+                            <a href="http://twitter.com/belaruscanada" target="_blank"><i class="bx bxl-twitter"></i></a>
+                            <a href="http://facebook.com/belarusian.canadian.alliance" target="_blank"><i class="bx bxl-facebook"></i></a>
+                            <a href="https://www.linkedin.com/company/belarusian-canadian-alliance" target="_blank"><i class="bx bxl-linkedin"></i></a>
+                            <a href="https://www.instagram.com/belaruscanada/" target="_blank"><i class="bx bxl-instagram"></i></a>
+                            <a href="https://t.me/belcanalliance" target="_blank"><i class="bx bxl-telegram"></i></a>
                         </div>
                     </div>
 

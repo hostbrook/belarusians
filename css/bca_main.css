@@ -56,6 +56,7 @@
 --------------------------------------------------------------*/
 body {
   font-family: var(--font-default);
+  font-size: 0.95rem;
   color: #444444;
 }
 
@@ -1170,10 +1171,6 @@ section.events {
   padding-top: 40px;
   padding-bottom: 10px;
 }
-.events .event-info {
-  font-size: 14px;
-  color: var(--color-title);
-}
 .events ul {
   list-style: none;
   padding: 0;
@@ -1191,6 +1188,17 @@ section.events {
 }
 .events p:last-child {
   margin-bottom: 0;
+}
+ul.event-info {
+  font-size: 13px;
+  color: var(--color-title);
+}
+ul.event-info i {
+  font-size: 14px;
+}
+ul.event-info li {
+  padding: 8px 0 0 22px;
+  position: relative;
 }
 
 /*--------------------------------------------------------------
@@ -1605,36 +1613,36 @@ section.map {
 .bca-form {
     width: 100%;
     background: #fff;
-  }
-  .bca-form .form-group {
+}
+.bca-form .form-group {
     padding-bottom: 8px;
-  }
-  .bca-form .error-message {
+}
+.bca-form .error-message {
     display: none;
     color: #fff;
     background: #ed3c0d;
     text-align: left;
     padding: 15px;
     font-weight: 600;
-  }
-  .bca-form .error-message br + br {
+}
+.bca-form .error-message br + br {
     margin-top: 25px;
-  }
-  .bca-form .sent-message {
+}
+.bca-form .sent-message {
     display: none;
     color: #fff;
     background: #18d26e;
     text-align: center;
     padding: 15px;
     font-weight: 600;
-  }
-  .bca-form .loading {
+}
+.bca-form .loading {
     display: none;
     background: #fff;
     text-align: center;
     padding: 15px;
-  }
-  .bca-form .loading:before {
+}
+.bca-form .loading:before {
     content: "";
     display: inline-block;
     border-radius: 50%;
@@ -1645,48 +1653,51 @@ section.map {
     border-top-color: #eee;
     -webkit-animation: animate-loading 1s linear infinite;
     animation: animate-loading 1s linear infinite;
-  }
-  .bca-form input,
-  .bca-form textarea {
+}
+.bca-form input,
+.bca-form textarea {
     border-radius: 0;
     box-shadow: none;
     font-size: 14px;
     border-radius: 4px;
-  }
-  .bca-form input:focus,
-  .bca-form textarea:focus {
+}
+.bca-form input:focus,
+.bca-form textarea:focus {
     border-color: var(--color-primary);
-      outline: none;
-  }
-  .bca-form input {
+    outline: none;
+}
+.bca-form input {
     height: 44px;
-  }
-  .bca-form textarea {
+}
+.bca-form textarea {
     padding: 10px 12px;
-  }
-  .bca-form input[type="submit"] {
+}
+.bca-form input[type="submit"] {
     background: var(--color-primary);
     border: 0;
     padding: 10px 24px;
     color: #fff;
     transition: 0.4s;
     border-radius: 4px;
-  }
-  .bca-form input[type="submit"]:hover {
+}
+.bca-form input[type="submit"]:hover {
     background: var(--color-hover);
-  }
-  
-  .form-control:focus {
-      box-shadow:none;
-  }
-      
-  span.wpcf7-list-item { display: block; }
-  .bca-form input[type="radio"] {
-      height: auto;
-  }
-  .wpcf7-not-valid-tip {
-      font-size:10pt;
-  }
+}
+
+.form-control:focus {
+    box-shadow:none;
+}
+    
+span.wpcf7-list-item { 
+    display: block; 
+}
+.bca-form input[type="radio"],
+.bca-form input[type="checkbox"] {
+    height: auto;
+}
+.wpcf7-not-valid-tip {
+    font-size:10pt;
+}
 
 /*--------------------------------------------------------------
 # Blog Posts List
@@ -1785,12 +1796,17 @@ section.map {
 }
 .blog .blog-details .content {
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 .blog .blog-details .content h3 {
   font-size: 22px;
   margin-top: 30px;
   font-weight: bold;
 }
+.blog .blog-details .content .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
 .blog .blog-details .content blockquote {
   overflow: hidden;
   background-color: rgba(var(--color-secondary-rgb), 0.06);

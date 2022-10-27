@@ -94,9 +94,7 @@ while(have_posts()) {
                 </div><!-- End post author -->
     
                 <div class="comments">
-    
-                    <h4 class="comments-count">Comments are turned off.</h4>
-    
+                    <p><strong>Comments are turned off.</strong></p>
                 </div><!-- End blog comments -->
     
             </div>

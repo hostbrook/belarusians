@@ -18,7 +18,7 @@
                     <!-- Recent posts -->
                     <div class="sidebar-item recent-posts">
                         <div class="section-title" style="padding-top:20px;padding-bottom:40px;">
-                            <h2 style="font-size: 16px;color:#aaaaaa;font-weight: 600;">Апошнія навіны</h2>
+                            <h2 style="font-size: 16px;color:#aaaaaa;font-weight: 600;">Навіны</h2>
                         </div>
         
                         <?php 
@@ -80,8 +80,8 @@
                                 <li><i class="bi bi-geo-alt"></i> <?php the_field('event_location'); ?></li>
                                 <li><i class="bi bi-clock"></i> <?= $eventDate->format('F j, Y g:i a'); ?></li>
                             </ul>
-                            <p><small><?= has_excerpt() ? the_excerpt() : wp_trim_words(get_the_content(), 40); ?></small></p>
-                            <p><small><a href="<?php the_permalink(); ?>">Чытаць болей <i class="bi bi-arrow-right"></i></a></small></p>
+                            <p><?= has_excerpt() ? the_excerpt() : wp_trim_words(get_the_content(), 40); ?></p>
+                            <p><a href="<?php the_permalink(); ?>">Чытаць болей <i class="bi bi-arrow-right"></i></a></p>
                         </div>
                         <?php endwhile; ?>
                         

@@ -59,33 +59,23 @@ while(have_posts()) {
                     <div class="content">
                         <?php the_content(); ?>
                     </div><!-- End post content -->
-    
-                    <div class="meta-bottom">
-                        
-                        <i class="bi bi-folder"></i>
-                        <ul class="cats">
-                            <li><a href="#"><?php echo get_the_category_list(', '); ?></a></li>
-                        </ul>
-   
-                        <?php
+                    <?php
                         $post_tags = get_the_tags();
                         if ( $post_tags ) : ?>
+                    <div class="meta-bottom">                        
                         <i class="bi bi-tags"></i>
                         <ul class="tags">
                         <?php foreach( $post_tags as $tag ) : ?>
                             <li><a href="<?= esc_attr( get_tag_link( $tag->term_id ) ); ?>"><?= $tag->name; ?></a></li>'; 
                         <?php endforeach; ?>
                         </ul>
-                        <?php endif; ?> 
-
                     </div><!-- End meta bottom -->
+                    <?php endif; ?> 
     
                 </article><!-- End blog post -->
     
                 <div class="comments">
-    
-                    <h4 class="comments-count">Comments are turned off.</h4>
-    
+                    <p><strong>Comments are turned off.</strong></p>
                 </div><!-- End blog comments -->
     
             </div>

@@ -30,8 +30,9 @@
   <link href="<?= get_theme_file_uri('/vendor/glightbox/css/glightbox.min.css'); ?>" rel="stylesheet">
   <link href="<?= get_theme_file_uri('/vendor/swiper/swiper-bundle.min.css'); ?>" rel="stylesheet">
   
+  <!-- WP -->
   <?php wp_head(); ?>
-
+  <!-- /WP -->
 </head>
 
 <body>
@@ -44,10 +45,11 @@
             </div>
             <div class="d-flex social-links align-items-center">
                 <a href="/" class="langbar">EN</a> | <a href="/" class="langbar">BE</a>
-                <a href="http://twitter.com/belaruscanada"><i class="bi bi-twitter"></i></a>
-                <a href="http://facebook.com/belarusian.canadian.alliance"><i class="bi bi-facebook"></i></a>
-                <a href="https://www.linkedin.com/company/belarusian-canadian-alliance"><i class="bi bi-linkedin"></i></a>
-                <a href="https://www.instagram.com/belaruscanada/"><i class="bi bi-instagram"></i></a>
+                <a href="http://twitter.com/belaruscanada" target="_blank"><i class="bi bi-twitter"></i></a>
+                <a href="http://facebook.com/belarusian.canadian.alliance" target="_blank"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.linkedin.com/company/belarusian-canadian-alliance" target="_blank"><i class="bi bi-linkedin"></i></a>
+                <a href="https://www.instagram.com/belaruscanada/" target="_blank"><i class="bi bi-instagram"></i></a>
+                <a href="https://t.me/belcanalliance" target="_blank"><i class="bi bi-telegram"></i></a>
             </div>
         </div>
     </div>
@@ -96,7 +98,7 @@
                     </li>
                     
                     <li class="d-none d-lg-flex"><a class="nav-link" data-bs-toggle="collapse" href="#search-open"><i class="bi bi-search"></i></a></li>
-                    <li><a href="/" class="getstarted">Далучыцца</a></li>
+                    <li><a href="/become-volunteer" class="getstarted">Далучыцца</a></li>
                 </ul>
 
                 <!--

@@ -30,7 +30,7 @@ get_header(); ?>
                                 Згуртаванне беларусаў Канады - гэта некамерцыйная арганізацыя, якая аб'ядноўвае беларускія суполкі Канады. Мы супрацоўнічаем з арганізацыямі і тымі, хто падтрымлівае ўзбагачэнне канадскага грамадства шляхам прасоўвання беларускай культуры, мастацтва і даследаванняў.
                             </p>
                             <div class="text-center">
-                            <a href="/about.html" class="more-btn">Падрабязней <i class="bx bx-chevron-right"></i></a>
+                            <a href="/about" class="more-btn">Падрабязней <i class="bx bx-chevron-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -70,7 +70,7 @@ get_header(); ?>
             <div class="container">
                 <div class="row">
 
-                    <!-- LLatest news content -->
+                    <!-- Latest news content -->
                     <div class="col-lg-8 recent-posts pe-lg-5">
                         <div class="section-title" style="padding-top:40px;padding-bottom:40px;">
                             <h2 style="font-size: 16px;color:#aaaaaa;font-weight: 600;">Навіны</h2>
