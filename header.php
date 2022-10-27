@@ -30,9 +30,6 @@
   <link href="<?= get_theme_file_uri('/vendor/glightbox/css/glightbox.min.css'); ?>" rel="stylesheet">
   <link href="<?= get_theme_file_uri('/vendor/swiper/swiper-bundle.min.css'); ?>" rel="stylesheet">
   
-
-  <!-- Template Main CSS File -->
-  <link href="<?= get_theme_file_uri('/css/bsa_main.css'); ?>?ver=221024" rel="stylesheet"><!-- <?=rand(10,10000);?> -->
   <?php wp_head(); ?>
 
 </head>
