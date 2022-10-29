@@ -19,7 +19,8 @@ add_action('after_setup_theme', 'theme_features');
  * Connect theme CSS and JS
  */
 function bca_files(){
-    wp_enqueue_style('bca_main_styles', get_theme_file_uri('/css/bca_main.css'), [], rand(10,10000)); //rand(10,10000)
+    wp_enqueue_style('bca_main_styles', get_theme_file_uri('/css/bca_main.css'), [], '220128'); //rand(10,100000)
+    wp_enqueue_script('bca_main_js', get_theme_file_uri('/js/bca_main.js'), [], '220128', true);
 }
 add_action('wp_enqueue_scripts', 'bca_files');
 
