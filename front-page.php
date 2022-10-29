@@ -5,65 +5,84 @@
 
 get_header(); ?>
 
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-        <div class="container" data-aos="fade-in">
-            <h1>Згуртаванне Беларусаў Канады</h1>
-            <h2>Аб'ядноўваем беларусаў Канады з 1948г.</h2>
-            <div class="d-flex align-items-center">
-                <a href="https://www.youtube.com/watch?v=XLE7RR96oDk" class="glightbox"><i class="bx bxs-right-arrow get-started-icon"></i></a>
-                <a href="https://www.youtube.com/watch?v=XLE7RR96oDk" class="glightbox btn-get-started">Get Started</a>
+    <!-- ======= Slides Section ======= -->
+    <section id="slides">
+        <div id="slidesCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+            <ol class="carousel-indicators" id="slides-carousel-indicators"></ol>
+
+            <div class="carousel-inner" role="listbox">
+
+            <?php
+                $slides = new WP_Query([
+                    'post_type' => 'slide'
+                ]);
+
+                $activeSlide = true;
+
+                while($slides->have_posts()) {
+                    $slides->the_post();
+                ?>
+
+                <div class="carousel-item <?= $activeSlide ? 'active' : '';?> " style="background-image: url(<?php the_field('image'); ?>)">
+                <?php if (get_field('slogan_title') != '' or get_field('slogan_text') != ''): ?>
+                    <div class="carousel-container">
+                        <div class="container">
+                            <?php if (get_field('slogan_title') != ''): ?><h2 class="animate__animated animate__fadeInDown"><?=get_field('slogan_title');?></h2><?php endif; ?>
+                            <?php if (get_field('slogan_text') != ''): ?><p class="animate__animated animate__fadeInUp"><?=get_field('slogan_text');?></p><?php endif; ?>
+                            <?php if (get_field('button') != ''): ?><a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto"><?=get_field('button');?></a><?php endif; ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+                </div>
+
+                <?php 
+                    $activeSlide = false;
+                } ?>
+
             </div>
+
+            <a class="carousel-control-prev" href="#slidesCarousel" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+            </a>
+
+            <a class="carousel-control-next" href="#slidesCarousel" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+            </a>
+
         </div>
-    </section><!-- End Hero -->
+    </section><!-- End Slides -->
 
     <main id="main">
 
-        <!-- ======= Why Us Section ======= -->
-        <section id="why-us" class="why-us">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-4 col-lg-5" data-aos="fade-up">
-                        <div class="content">
-                            <h3>ХТО МЫ</h3>
-                            <p>
-                                Згуртаванне беларусаў Канады - гэта некамерцыйная арганізацыя, якая аб'ядноўвае беларускія суполкі Канады. Мы супрацоўнічаем з арганізацыямі і тымі, хто падтрымлівае ўзбагачэнне канадскага грамадства шляхам прасоўвання беларускай культуры, мастацтва і даследаванняў.
-                            </p>
-                            <div class="text-center">
-                            <a href="/about" class="more-btn">Падрабязней <i class="bx bx-chevron-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-8 col-lg-7 d-flex">
-                        <div class="icon-boxes d-flex flex-column justify-content-center">
-                            <div class="row">
-                            <div class="col-xl-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-                                <div class="icon-box mt-4 mt-xl-0">
-                                <i class="bi bi-shield-check"></i>
-                                <h4>Захоўваем</h4>
-                                <p>беларускую гісторыка-культурную спадчыну і беларускую мову.</p>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-                                <div class="icon-box mt-4 mt-xl-0">
-                                    <i class="bi bi-easel"></i>
-                                <h4>Прадстаўляем</h4>
-                                <p>беларуска - канадскую супольнасць перад народам і ўрадам Канады.</p>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-                                <div class="icon-box mt-4 mt-xl-0">
-                                    <i class="bi bi-people"></i>
-                                <h4>Падтрымліваем</h4>
-                                <p>беларускую дыяспару ў Канадзе і садзейнічаем дэмакратычным зменам у Беларусі.</p>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section><!-- End Why Us Section -->
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row content">
+          <div class="col-lg-6">
+            <h2>Згуртаванне<br> Беларусаў Канады</h2>
+            <h3>Аб’ядноўваем беларусаў Канады з 1948г.</h3>
+            
+            <p class="fst-italic">
+            Вядучая арганізацыя дыяспары, прызнаная ва ўсім свеце, задзейнічае вялікі пул навукоўцаў, спецыялістаў і экспертаў па ўсёй Канадзе, ЗША і свеце, каб даць інфармаванае і ўзважанае меркаванне па пытаннях, звязаных з Беларуссю.
+            </p>
+            <p class="pb-4"><a href="/about" class="primary-button">Падрабязней <i class="bi bi-arrow-right"></i></a></p>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <p>
+            Згуртаванне беларусаў Канады было заснавана ў 1948 годзе для прадстаўлення беларуска-канадскай супольнасці перад народам і ўрадам Канады. Місія ЗБК заключаецца ў захаванні беларускай культурнай і гістарычнай спадчыны і прасоўванні беларускай мовы, а таксама ў падтрымцы і садзейнічанні дэмакратычным зменам у Беларусі.
+            </p>
+            <ul>
+              <li><i class="bi bi-check2-all"></i> Захоўваем беларускую гісторыка-культурную спадчыну і беларускую мову.</li>
+              <li><i class="bi bi-check2-all"></i> Прадстаўляем беларуска – канадскую супольнасць перад народам і ўрадам Канады.</li>
+              <li><i class="bi bi-check2-all"></i> Падтрымліваем беларускую дыяспару ў Канадзе і садзейнічаем дэмакратычным зменам у Беларусі.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
 
         <!-- =======  Section ======= -->
         <section id="live" style="padding-top:20px;">
@@ -77,46 +96,11 @@ get_header(); ?>
                         </div>
 
                         <!-- Latest news -->
-                        <?php 
-                        $query = new WP_Query(['post_type'=>'post']);
-                        while ($query->have_posts()) :
-                            $query->the_post();
-                        ?>
-                        <div class="row pb-5">
-                            <div class="col" data-aos="fade-up" data-aos-delay="100">
-                                <div class="post-box">
-                                    <?php  if (has_post_thumbnail( $post->ID ) ): ?>
-                                    <div class="post-img">
-                                        <img src="<?= wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?>" class="img-fluid" alt="">
-                                    </div>
-                                    <?php endif; ?>
-                                    <div class="meta-top">
-                                        <ul>
-                                            <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="<?php the_permalink(); ?>"><time datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('d M, Y'); ?></time></a></li>
-                                            <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="<?php the_permalink(); ?>"><?= get_comments_number(); ?> Каментарыяў</a></li>
-                                            <!--<li class="d-flex align-items-center"><i class="bi bi-hand-thumbs-up"></i> <a href="<?php the_permalink(); ?>">8</a></li>-->
-                                            <li class="d-flex align-items-center"><i class="bi bi-eye"></i> <a href="<?php the_permalink(); ?>"><?= hb_get_post_view(); ?> Праглядаў</a></li>
-                                        </ul>
-                                    </div>
-                                    <h3 class="post-title"><?php the_title(); ?></h3>
-                                    <?= has_excerpt() ? the_excerpt() : wp_trim_words(get_the_content(), 50); ?>
-                                    <a href="<?php the_permalink(); ?>" class="readmore stretched-link"><span>Чытаць болей</span><i class="bi bi-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <?php break; endwhile; ?>
-        
                         <div class="row gy-5">
-        
                             <?php 
-                            $query = new WP_Query(['post_type'=>'post', 'posts_per_page' => '5']);
-                            $skipFirst = true;
-                            while ($query->have_posts()) :
+                                $query = new WP_Query(['post_type'=>'post', 'posts_per_page' => '6']);
+                                while ($query->have_posts()) :
                                 $query->the_post();
-                                if ($skipFirst) {
-                                    $skipFirst = false;
-                                    continue;
-                                }
                             ?>
                             <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
                                 <div class="post-box">
@@ -139,7 +123,6 @@ get_header(); ?>
                                 </div>
                             </div>
                             <?php endwhile; ?>
-                    
                         </div>
                     </div>
 
@@ -207,12 +190,12 @@ get_header(); ?>
                         <div class="ratio ratio-16x9">
                             <iframe src="https://www.facebook.com/plugins/video.php?height=306&href=https%3A%2F%2Fwww.facebook.com%2Fbelarusian.canadian.alliance%2Fvideos%2F1341138656313841%2F&show_text=false&width=560&t=0" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                         </div>
-
+<!--
                         <div class="section-title pt-5 pb-3">
                             <h2 style="font-size: 16px;color:#aaaaaa;font-weight: 600;">Важкiя Тэгі</h2>
                         </div>
 
-                        <!-- Tags -->
+                         Tags 
                         <div class="tags">
                             <ul class="mt-3">
                             <?php
@@ -227,7 +210,7 @@ get_header(); ?>
                                 <?php endforeach; ?>
                             <?php endif; ?>
                             </ul>
-                        </div>
+                        </div>-->
 
                     </div>
 

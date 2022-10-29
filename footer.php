@@ -91,10 +91,9 @@
     <!-- Swiper - Most modern mobile touch slider and framework with hardware accelerated transitions -->
     <script src="<?= get_theme_file_uri('/vendor/swiper/swiper-bundle.min.js'); ?>"></script>
 
-    <!-- Template Main JS File -->
-    <script src="<?= get_theme_file_uri('/js/main.js'); ?>"></script>
-
-<?php wp_footer(); ?>
+    <!-- WP -->
+    <?php wp_footer(); ?>
+    <!-- /WP -->
 </body>
 
 </html>

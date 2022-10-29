@@ -99,17 +99,17 @@
   }, true)
 
   /**
-   * Hero carousel indicators
-  
-  let heroCarouselIndicators = select("#hero-carousel-indicators")
-  let heroCarouselItems = select('#heroCarousel .carousel-item', true)
+   * Slides carousel indicators
+   */
+  let slidesCarouselIndicators = select("#slides-carousel-indicators")
+  let slidesCarouselItems = select('#slidesCarousel .carousel-item', true)
 
-  heroCarouselItems.forEach((item, index) => {
+  slidesCarouselItems.forEach((item, index) => {
     (index === 0) ?
-    heroCarouselIndicators.innerHTML += "<li data-bs-target='#heroCarousel' data-bs-slide-to='" + index + "' class='active'></li>":
-      heroCarouselIndicators.innerHTML += "<li data-bs-target='#heroCarousel' data-bs-slide-to='" + index + "'></li>"
+    slidesCarouselIndicators.innerHTML += "<li data-bs-target='#slidesCarousel' data-bs-slide-to='" + index + "' class='active'></li>":
+    slidesCarouselIndicators.innerHTML += "<li data-bs-target='#slidesCarousel' data-bs-slide-to='" + index + "'></li>"
   });
- */
+
   /**
    * Porfolio isotope and filter
    */
