@@ -416,159 +416,58 @@ h6 {
 /*--------------------------------------------------------------
 # Slides Section
 --------------------------------------------------------------*/
-
 #slides {
-  width: 100%;
-  height: 70vh;
-  background-color: rgba(63, 73, 83, 0.8);
-  overflow: hidden;
-  position: relative;
-  margin-bottom: 30px;
+    background-color: rgba(71, 77, 83, 1);
+    margin-top: 80px;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
 }
-#slides .carousel, #slides .carousel-inner, #slides .carousel-item, #slides .carousel-item::before {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
+#slides .carousel-image {
+    opacity:0.7;
+    -moz-opacity:0.7;
+    filter: alpha(opacity=70) black;
+    -khtml-opacity: 0.7;
+    background-color:#000;
 }
-#slides .carousel-item {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+#slides .carousel-control-next-icon, 
+#slides .carousel-control-prev-icon {
+    background: none;
+    font-size: 30px;
+    line-height: 0;
+    width: auto;
+    height: auto;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50px;
+    transition: 0.3s;
+    color: black;
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-#slides .carousel-item::before {
-  content: "";
-  /*background-color: rgba(30, 35, 40, 0.6);*/
-  background-color: rgba(30, 35, 40, 0.3);
+#slides .carousel-control-next-icon:hover, 
+#slides .carousel-control-prev-icon:hover {
+    background: rgba(255, 255, 255, 0.3);
 }
-#slides .carousel-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  bottom: 0;
-  top: 70px;
-  left: 50px; 
-  right: 50px;
+#slides .carousel-indicators button {
+    height: 7px;
+    transition: opacity .6s ease;
+    background-color: rgba(200, 200, 200, 0.7);
 }
-#slides .container {
-  text-align: center;
-  background-color: rgba(30, 35, 40, 0.5);
-  padding: 20px;
-  max-width: 700px;
+#slides .carousel-indicators button.active {
+    background-color: rgba(255, 255, 255, 0.7);
 }
-#slides h2 {
-  color: #fff;
-  margin-bottom: 20px;
-  font-size: 40px;
-  font-weight: 700;
+#slides .carousel-caption {
+    background-color: rgba(0, 0, 0, 0.3);
 }
-#slides p {
-  -webkit-animation-delay: 0.4s;
-  animation-delay: 0.4s;
-  margin: 0 auto 30px auto;
-  color: #fff;
-  font-size: 1rem;
+#slides .carousel-caption h4 {
+    color: #CCC;
 }
-#slides .carousel-inner .carousel-item {
-  transition-property: opacity;
-  background-position: center top;
-}
-#slides .carousel-inner .carousel-item,
-#slides .carousel-inner .active.carousel-item-start,
-#slides .carousel-inner .active.carousel-item-end {
-  opacity: 0;
-}
-#slides .carousel-inner .active,
-#slides .carousel-inner .carousel-item-next.carousel-item-start,
-#slides .carousel-inner .carousel-item-prev.carousel-item-end {
-  opacity: 1;
-  transition: 0.5s;
-}
-#slides .carousel-inner .carousel-item-next,
-#slides .carousel-inner .carousel-item-prev,
-#slides .carousel-inner .active.carousel-item-start,
-#slides .carousel-inner .active.carousel-item-end {
-  left: 0;
-  transform: translate3d(0, 0, 0);
-}
-#slides .carousel-control-next-icon, #slides .carousel-control-prev-icon {
-  background: none;
-  font-size: 30px;
-  line-height: 0;
-  width: auto;
-  height: auto;
-  /*background: rgba(255, 255, 255, 0.2);*/
-  background: rgba(35, 38, 41, 0.9);
-  border-radius: 50px;
-  transition: 0.3s;
-  color: rgba(255, 255, 255, 0.5);
-  width: 54px;
-  height: 54px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#slides .carousel-control-next-icon:hover, #slides .carousel-control-prev-icon:hover {
-  background: rgba(255, 255, 255, 0.3);
-  color: rgba(255, 255, 255, 0.8);
-}
-#slides .carousel-indicators li {
-  cursor: pointer;
-  background: #fff;
-  overflow: hidden;
-  border: 0;
-  width: 12px;
-  height: 12px;
-  border-radius: 50px;
-  opacity: 0.6;
-  transition: 0.3s;
-}
-#slides .carousel-indicators li.active {
-  opacity: 1;
-  background: var(--color-primary);
-}
-#slides .btn-get-started {
-  font-family: var(--font-primary);
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: 1px;
-  display: inline-block;
-  padding: 14px 32px;
-  border-radius: 4px;
-  transition: 0.5s;
-  line-height: 1;
-  color: #fff;
-  -webkit-animation-delay: 0.8s;
-  animation-delay: 0.8s;
-  background: var(--color-primary);
-}
-#slides .btn-get-started:hover {
-  background: #df3740;
-}
-@media (max-width: 992px) {
-  #slides {
-    height: 100vh;
-  }
-  #slides .carousel-container {
-    top: 8px;
-  }
-}
-@media (max-width: 768px) {
-  #slides h2 {
-    font-size: 28px;
-  }
-}
-@media (min-width: 1024px) {
-  #slides .carousel-control-prev, #slides .carousel-control-next {
-    width: 5%;
-  }
-}
-@media (max-height: 500px) {
-  #slides {
-    height: 120vh;
-  }
+#slides .carousel-caption p {
+    color: #AAA;
+    font-size: 1.1rem;
 }
 
 /*--------------------------------------------------------------

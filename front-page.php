@@ -6,52 +6,52 @@
 get_header(); ?>
 
     <!-- ======= Slides Section ======= -->
+    <?php
+        $slides = new WP_Query([
+            'post_type' => 'slide'
+        ]);
+        $slidesQty = $slides->found_posts;
+        $activeSlide = true;
+    ?>
     <section id="slides">
-        <div id="slidesCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
-
-            <ol class="carousel-indicators" id="slides-carousel-indicators"></ol>
-
-            <div class="carousel-inner" role="listbox">
-
-            <?php
-                $slides = new WP_Query([
-                    'post_type' => 'slide'
-                ]);
-
-                $activeSlide = true;
-
-                while($slides->have_posts()) {
-                    $slides->the_post();
+        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <?php for ($i = 0; $i < $slidesQty; $i++) :?>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="<?=$i;?>" <?= $activeSlide ? 'class="active"' : '';?>></button>
+                <?php $activeSlide = false; endfor; ?>
+            </div>
+            <div class="carousel-inner">
+                <?php
+                    $activeSlide = true;
+                    while($slides->have_posts()) {
+                        $slides->the_post();
                 ?>
 
-                <div class="carousel-item <?= $activeSlide ? 'active' : '';?> " style="background-image: url(<?php the_field('image'); ?>)">
-                <?php if (get_field('slogan_title') != '' or get_field('slogan_text') != ''): ?>
-                    <div class="carousel-container">
-                        <div class="container">
-                            <?php if (get_field('slogan_title') != ''): ?><h2 class="animate__animated animate__fadeInDown"><?=get_field('slogan_title');?></h2><?php endif; ?>
+                <div class="carousel-item <?= $activeSlide ? 'active' : '';?>" data-bs-interval="5000">
+                    <img src="<?php the_field('image'); ?>" class="d-block w-100 carousel-image" alt="">
+                    <?php if (get_field('slogan_title') != '' or get_field('slogan_text') != ''): ?>
+                        <div class="carousel-caption d-none d-md-block">
+                            <?php if (get_field('slogan_title') != ''): ?><h4 class="animate__animated animate__fadeInDown"><?=get_field('slogan_title');?></h4><?php endif; ?>
                             <?php if (get_field('slogan_text') != ''): ?><p class="animate__animated animate__fadeInUp"><?=get_field('slogan_text');?></p><?php endif; ?>
-                            <?php if (get_field('button') != ''): ?><a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto"><?=get_field('button');?></a><?php endif; ?>
                         </div>
-                    </div>
-                <?php endif; ?>
+                    <?php endif; ?>
                 </div>
 
                 <?php 
-                    $activeSlide = false;
-                } ?>
-
+                        $activeSlide = false;
+                    } ?>
             </div>
-
-            <a class="carousel-control-prev" href="#slidesCarousel" role="button" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
-            </a>
-
-            <a class="carousel-control-next" href="#slidesCarousel" role="button" data-bs-slide="next">
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
                 <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
-            </a>
-
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-    </section><!-- End Slides -->
+    </section>
+    <!-- ======= End Slides Section ======= -->
 
     <main id="main">
 
@@ -136,7 +136,6 @@ get_header(); ?>
 
                         <?php
                         $today = date('Y-m-d H:i');
-                        $eventsdoNotExist = true;
                         $events = new WP_Query([
                             'post_type' => 'event',
                             'posts_per_page' => 3,
@@ -152,10 +151,11 @@ get_header(); ?>
                             ]
                         ]);
 
+                        $eventsQty = $events->found_posts;
+
                         while($events->have_posts()) {
                             $events->the_post();
                             $eventDate = new DateTime(get_field('event_date'));
-                            $eventsdoNotExist = false;
                         ?>
 
                         <?php  if (has_post_thumbnail( $post->ID ) ): ?>
@@ -174,7 +174,7 @@ get_header(); ?>
                         <p class="pb-4"><a href="<?php the_permalink(); ?>" class="primary-button">Чытаць болей</a></p>
 
                         <?php } 
-                        if ($eventsdoNotExist) : ?>
+                        if ($eventsQty == 0) : ?>
                         <p>Right now no upcoming events.</p>
                         <?php endif; ?>
                         <!-- /Events -->
@@ -190,27 +190,30 @@ get_header(); ?>
                         <div class="ratio ratio-16x9">
                             <iframe src="https://www.facebook.com/plugins/video.php?height=306&href=https%3A%2F%2Fwww.facebook.com%2Fbelarusian.canadian.alliance%2Fvideos%2F1341138656313841%2F&show_text=false&width=560&t=0" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                         </div>
-<!--
-                        <div class="section-title pt-5 pb-3">
-                            <h2 style="font-size: 16px;color:#aaaaaa;font-weight: 600;">Важкiя Тэгі</h2>
-                        </div>
 
-                         Tags 
-                        <div class="tags">
-                            <ul class="mt-3">
-                            <?php
-                            $tags = get_tags([
-                                'number' => 20,
-                                'orderby' => 'count', 
-                                'order' => 'DESC'
-                            ]);
-                            if ( $tags ) :
-                                foreach ( $tags as $tag ) : ?>
-                                    <li><a href="<?php echo esc_url( get_tag_link( $tag->term_id ) ); ?>" title="<?php echo esc_attr( $tag->name ); ?>"><?php echo esc_html( $tag->name ); ?></a></li>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                            </ul>
-                        </div>-->
+                        <?php if ($eventsQty < 2) : ?>
+                            <!-- Tags -->
+                            <div class="section-title pt-5 pb-3">
+                                <h2 style="font-size: 16px;color:#aaaaaa;font-weight: 600;">Важкiя Тэгі</h2>
+                            </div>
+                            
+                            <div class="tags">
+                                <ul class="mt-3">
+                                <?php
+                                $tags = get_tags([
+                                    'number' => 20,
+                                    'orderby' => 'count', 
+                                    'order' => 'DESC'
+                                ]);
+                                if ( $tags ) :
+                                    foreach ( $tags as $tag ) : ?>
+                                        <li><a href="<?php echo esc_url( get_tag_link( $tag->term_id ) ); ?>" title="<?php echo esc_attr( $tag->name ); ?>"><?php echo esc_html( $tag->name ); ?></a></li>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                                </ul>
+                            </div>
+                            <!-- /Tags -->
+                        <?php endif; ?>
 
                     </div>
 

@@ -100,7 +100,7 @@
 
   /**
    * Slides carousel indicators
-   */
+  
   let slidesCarouselIndicators = select("#slides-carousel-indicators")
   let slidesCarouselItems = select('#slidesCarousel .carousel-item', true)
 
@@ -108,7 +108,9 @@
     (index === 0) ?
     slidesCarouselIndicators.innerHTML += "<li data-bs-target='#slidesCarousel' data-bs-slide-to='" + index + "' class='active'></li>":
     slidesCarouselIndicators.innerHTML += "<li data-bs-target='#slidesCarousel' data-bs-slide-to='" + index + "'></li>"
-  });
+  }); */
+
+  const carousel = new bootstrap.Carousel('#carouselExampleDark')
 
   /**
    * Porfolio isotope and filter
