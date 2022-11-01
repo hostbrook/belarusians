@@ -417,7 +417,7 @@ h6 {
 # Slides Section
 --------------------------------------------------------------*/
 #slides {
-    background-color: rgba(71, 77, 83, 1);
+    background-color: rgba(0, 0, 0, 0.8);
     margin-top: 80px;
     margin-bottom: 0;
     padding-top: 0;
@@ -574,18 +574,17 @@ section {
   padding: 60px 0;
   overflow: hidden;
 }
-
 .section-bg,
 .services .icon-box {
   background-color: var(--color-bkg-light);
 }
-
 .section-title {
-  padding-bottom: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 .section-title h2 {
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 600;
   padding: 0;
   line-height: 1px;
   margin: 0 0 5px 0;
@@ -611,6 +610,7 @@ section {
   font-family: var(--font-secondary);
   color: #556270;
 }
+
 
 /*--------------------------------------------------------------
 # Why Us
@@ -1077,10 +1077,6 @@ section.events {
   margin-top: 40px;
   padding-top: 0px;
   padding-bottom: 0px;
-}
-.events .section-title {
-  padding-top: 40px;
-  padding-bottom: 10px;
 }
 .events ul {
   list-style: none;
@@ -1846,38 +1842,38 @@ span.wpcf7-list-item {
 }
 
 /*--------------------------------------------------------------
-# Blog Sidebar
+# Sidebar
 --------------------------------------------------------------*/
-.blog .sidebar {
+.sidebar {
   padding: 30px;
   box-shadow: 0 4px 16px rgba(var(--color-black-rgb), 0.1);
 }
-.blog .sidebar .sidebar-title {
+.sidebar .sidebar-title {
   font-size: 20px;
   font-weight: 700;
   padding: 0;
   margin: 0;
   color: var(--color-secondary);
 }
-.blog .sidebar .sidebar-item + .sidebar-item {
+.sidebar .sidebar-item + .sidebar-item {
   margin-top: 40px;
 }
-.blog .sidebar .search-form form {
+.sidebar .search-form form {
   background: var(--color-white);
   border: 1px solid rgba(var(--color-secondary-rgb), 0.3);
   padding: 3px 10px;
   position: relative;
 }
-.blog .sidebar .search-form form input[type="text"] {
+.sidebar .search-form form input[type="text"] {
   border: 0;
   padding: 4px;
   border-radius: 4px;
   width: calc(100% - 40px);
 }
-.blog .sidebar .search-form form input[type="text"]:focus {
+.sidebar .search-form form input[type="text"]:focus {
   outline: none;
 }
-.blog .sidebar .search-form form button {
+.sidebar .search-form form button {
   position: absolute;
   top: 0;
   right: 0;
@@ -1893,57 +1889,57 @@ span.wpcf7-list-item {
   border-radius: 0 4px 4px 0;
   line-height: 0;
 }
-.blog .sidebar .search-form form button i {
+.sidebar .search-form form button i {
   line-height: 0;
 }
-.blog .sidebar .search-form form button:hover {
+.sidebar .search-form form button:hover {
   background: rgba(var(--color-primary-rgb), 0.8);
 }
-.blog .sidebar .categories ul {
+.sidebar .categories ul {
   list-style: none;
   padding: 0;
 }
-.blog .sidebar .categories ul li + li {
+.sidebar .categories ul li + li {
   padding-top: 10px;
 }
-.blog .sidebar .categories ul a {
+.sidebar .categories ul a {
   color: var(--color-secondary);
   transition: 0.3s;
 }
-.blog .sidebar .categories ul a:hover {
+.sidebar .categories ul a:hover {
   color: var(--color-default);
 }
-.blog .sidebar .categories ul a span {
+.sidebar .categories ul a span {
   padding-left: 5px;
   color: rgba(var(--color-default-rgb), 0.4);
   font-size: 14px;
 }
 
 /* recent posts */
-.blog .sidebar .recent-posts {
+.sidebar .recent-posts {
   padding-bottom: 0;
 }
-.blog .sidebar .recent-posts .post-item + .post-item {
+.sidebar .recent-posts .post-item + .post-item {
   margin-top: 20px;
 }
-.blog .sidebar .recent-posts img {
+.sidebar .recent-posts img {
   width: 80px;
   float: left;
 }
-.blog .sidebar .recent-posts h4 {
+.sidebar .recent-posts h4 {
   font-size: 15px;
   margin-left: 95px;
   margin-bottom: 0;
   font-weight: 600;
 }
-.blog .sidebar .recent-posts h4 a {
+.sidebar .recent-posts h4 a {
   color: #556270;
   transition: 0.3s;
 }
-.blog .sidebar .recent-posts h4 a:hover {
+.sidebar .recent-posts h4 a:hover {
   color: #d9232d;
 }
-.blog .sidebar .recent-posts time {
+.sidebar .recent-posts time {
   display: block;
   margin-left: 95px;
   font-style: italic;
@@ -1952,17 +1948,17 @@ span.wpcf7-list-item {
 }
 
 /* tags */
-.blog .sidebar .tags {
+.sidebar .tags {
   margin-bottom: -10px;
 }
-.blog .sidebar .tags ul {
+.sidebar .tags ul {
   list-style: none;
   padding: 0;
 }
-.blog .sidebar .tags ul li {
+.sidebar .tags ul li {
   display: inline-block;
 }
-.blog .sidebar .tags ul a {
+.sidebar .tags ul a {
   color: var(--color-secondary-light);
   font-size: 14px;
   padding: 6px 14px;
@@ -1971,12 +1967,12 @@ span.wpcf7-list-item {
   display: inline-block;
   transition: 0.3s;
 }
-.blog .sidebar .tags ul a:hover {
+.sidebar .tags ul a:hover {
   color: var(--color-white);
   border: 1px solid var(--color-primary);
   background: var(--color-primary);
 }
-.blog .sidebar .tags ul a span {
+.sidebar .tags ul a span {
   padding-left: 5px;
   color: rgba(var(--color-secondary-light-rgb), 0.8);
   font-size: 14px;

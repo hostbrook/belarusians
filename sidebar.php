@@ -17,8 +17,8 @@
     
                     <!-- Recent posts -->
                     <div class="sidebar-item recent-posts">
-                        <div class="section-title" style="padding-top:20px;padding-bottom:40px;">
-                            <h2 style="font-size: 16px;color:#aaaaaa;font-weight: 600;">Навіны</h2>
+                        <div class="section-title pt-2">
+                            <h2>Навіны</h2>
                         </div>
         
                         <?php 
@@ -40,8 +40,8 @@
 
                     <!-- Events -->
                     <div class="events">
-                        <div class="section-title" style="padding-top:60px;padding-bottom:40px;">
-                            <h2 style="font-size: 16px;color:#aaaaaa;font-weight: 600;">Падзеі</h2>
+                        <div class="section-title">
+                            <h2>Падзеі</h2>
                         </div>
 
                         <?php
@@ -95,8 +95,8 @@
         
                     <!-- Tags -->
                     <div class="sidebar-item tags">
-                        <div class="section-title" style="padding-top:40px;padding-bottom:20px;">
-                            <h2 style="font-size: 16px;color:#aaaaaa;font-weight: 600;">Важкiя Тэгі</h2>
+                        <div class="section-title">
+                            <h2>Важкiя Тэгі</h2>
                         </div>
                         <ul class="mt-3">
                         <?php

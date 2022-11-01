@@ -8,14 +8,11 @@
 
                     <div class="col-lg-4 col-md-6">
                         <div class="footer-info">
-                            <h4>Згуртаванне Беларусаў Канады</h4>
-                            <p>
-                            524 St. Clarens Ave, <br>
-                            Toronto, ON<br>
-                            Canada, M6H 3W7
-                            <br><br>
-                            <strong>E-mail:</strong> bca@belarusians.ca<br>
-                            </p>
+
+                            <!-- Widget area: Footer-Info (Left) -->
+                            <?php dynamic_sidebar( 'footer-info' ); ?>
+                            <!-- /Widget area -->
+
                         </div>
                     </div>
 
@@ -40,17 +37,13 @@
                         </ul>-->
                     </div>
 
-                    <div class="col-lg-4 col-md-6 footer-newsletter">
-                        <h4>Наша рассылка</h4>
-                        <form action="" method="post">
-                            <input type="email" name="email" placeholder="Ваш E-mail"><input type="submit" value="Падпісацца">
-                        </form>
-                        <div class="social-links mt-3">
-                            <a href="http://twitter.com/belaruscanada" target="_blank"><i class="bx bxl-twitter"></i></a>
-                            <a href="http://facebook.com/belarusian.canadian.alliance" target="_blank"><i class="bx bxl-facebook"></i></a>
-                            <a href="https://www.linkedin.com/company/belarusian-canadian-alliance" target="_blank"><i class="bx bxl-linkedin"></i></a>
-                            <a href="https://www.instagram.com/belaruscanada/" target="_blank"><i class="bx bxl-instagram"></i></a>
-                            <a href="https://t.me/belcanalliance" target="_blank"><i class="bx bxl-telegram"></i></a>
+                    <div class="col-lg-4 col-md-6 ">
+                        <div class="footer-newsletter">
+
+                            <!-- Widget area: Footer-newsletter (Right) -->
+                            <?php dynamic_sidebar( 'footer-newsletter' ); ?>
+                            <!-- /Widget area -->
+
                         </div>
                     </div>
 
@@ -63,14 +56,21 @@
 
                 <div class="d-flex flex-column align-items-center align-items-lg-start">
                     <div class="copyright">
-                        <p>&copy;2022 <a class="credits" href="https://belarusian.ca">belarusians.ca</a></p>
+
+                        <!-- Widget area: Copyright Left -->
+                        <?php dynamic_sidebar( 'copyright-left' ); ?>
+                        <!-- /Widget area -->
+
                     </div>
                 </div>
     
                 <div class="order-first order-lg-last">
                     <div class="copyright">
-                        <a class="credits" href="<?= get_theme_file_uri('/privacy-policy'); ?>">Палітыка прыватнасці.</a>
-                        <a class="credits" href="<?= get_theme_file_uri('/terms-and-conditions'); ?>">Ужыванне тэрмінаў.</a>
+
+                        <!-- Widget area: Copyright Right -->
+                        <?php dynamic_sidebar( 'copyright-right' ); ?>
+                        <!-- /Widget area -->
+
                     </div>
                 </div>
     

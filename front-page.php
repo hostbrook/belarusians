@@ -8,7 +8,8 @@ get_header(); ?>
     <!-- ======= Slides Section ======= -->
     <?php
         $slides = new WP_Query([
-            'post_type' => 'slide'
+            'post_type' => 'slide',
+            'posts_per_page' => -1
         ]);
         $slidesQty = $slides->found_posts;
         $activeSlide = true;
@@ -60,25 +61,20 @@ get_header(); ?>
       <div class="container">
 
         <div class="row content">
-          <div class="col-lg-6">
-            <h2>Згуртаванне<br> Беларусаў Канады</h2>
-            <h3>Аб’ядноўваем беларусаў Канады з 1948г.</h3>
-            
-            <p class="fst-italic">
-            Вядучая арганізацыя дыяспары, прызнаная ва ўсім свеце, задзейнічае вялікі пул навукоўцаў, спецыялістаў і экспертаў па ўсёй Канадзе, ЗША і свеце, каб даць інфармаванае і ўзважанае меркаванне па пытаннях, звязаных з Беларуссю.
-            </p>
-            <p class="pb-4"><a href="/about" class="primary-button">Падрабязней <i class="bi bi-arrow-right"></i></a></p>
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0">
-            <p>
-            Згуртаванне беларусаў Канады было заснавана ў 1948 годзе для прадстаўлення беларуска-канадскай супольнасці перад народам і ўрадам Канады. Місія ЗБК заключаецца ў захаванні беларускай культурнай і гістарычнай спадчыны і прасоўванні беларускай мовы, а таксама ў падтрымцы і садзейнічанні дэмакратычным зменам у Беларусі.
-            </p>
-            <ul>
-              <li><i class="bi bi-check2-all"></i> Захоўваем беларускую гісторыка-культурную спадчыну і беларускую мову.</li>
-              <li><i class="bi bi-check2-all"></i> Прадстаўляем беларуска – канадскую супольнасць перад народам і ўрадам Канады.</li>
-              <li><i class="bi bi-check2-all"></i> Падтрымліваем беларускую дыяспару ў Канадзе і садзейнічаем дэмакратычным зменам у Беларусі.</li>
-            </ul>
-          </div>
+            <div class="col-lg-6">
+
+                <!-- Widget area: Front Page Top-Left -->
+                <?php dynamic_sidebar( 'front-page-top-left' ); ?>
+                <!-- /Widget area -->
+
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0">
+
+                <!-- Widget area: Front Page Top-Right -->
+                <?php dynamic_sidebar( 'front-page-top-right' ); ?>
+                <!-- /Widget area -->
+
+            </div>
         </div>
 
       </div>
@@ -127,11 +123,13 @@ get_header(); ?>
                     </div>
 
                     <!-- Right sidebar -->
-                    <div class="col-lg-4 section-bg events">
+                    <div class="col-lg-4 section-bg sidebar">
 
                         <!-- Events -->
-                        <div class="section-title" style="padding-top:40px;padding-bottom:40px;">
-                            <h2 style="font-size: 16px;color:#aaaaaa;font-weight: 600;">Падзеі</h2>
+                        <div class="events">
+
+                        <div class="section-title pt-2">
+                            <h2>Падзеі</h2>
                         </div>
 
                         <?php
@@ -177,43 +175,36 @@ get_header(); ?>
                         if ($eventsQty == 0) : ?>
                         <p>Right now no upcoming events.</p>
                         <?php endif; ?>
+                        </div>
                         <!-- /Events -->
 
-                        <div class="section-title" style="padding-top:40px;padding-bottom:40px;">
-                            <h2 style="font-size: 16px;color:#aaaaaa;font-weight: 600;">Маменты</h2>
-                        </div>
+                        <!-- Widget area: Front Page right sidebar -->
+                        <?php dynamic_sidebar( 'front-page-right' ); ?>
+                        <!-- /Widget area -->
 
-                        <div class="ratio ratio-16x9 pb-5">
-                            <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fbelarusian.canadian.alliance%2Fvideos%2F1318819258525556%2F&show_text=false&width=560&t=0" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>                        
-                        </div>
-
-                        <div class="ratio ratio-16x9">
-                            <iframe src="https://www.facebook.com/plugins/video.php?height=306&href=https%3A%2F%2Fwww.facebook.com%2Fbelarusian.canadian.alliance%2Fvideos%2F1341138656313841%2F&show_text=false&width=560&t=0" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
-                        </div>
-
+                        <!-- Tags -->
                         <?php if ($eventsQty < 2) : ?>
-                            <!-- Tags -->
-                            <div class="section-title pt-5 pb-3">
-                                <h2 style="font-size: 16px;color:#aaaaaa;font-weight: 600;">Важкiя Тэгі</h2>
-                            </div>
-                            
-                            <div class="tags">
-                                <ul class="mt-3">
-                                <?php
-                                $tags = get_tags([
-                                    'number' => 20,
-                                    'orderby' => 'count', 
-                                    'order' => 'DESC'
-                                ]);
-                                if ( $tags ) :
-                                    foreach ( $tags as $tag ) : ?>
-                                        <li><a href="<?php echo esc_url( get_tag_link( $tag->term_id ) ); ?>" title="<?php echo esc_attr( $tag->name ); ?>"><?php echo esc_html( $tag->name ); ?></a></li>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
-                                </ul>
-                            </div>
-                            <!-- /Tags -->
+                        <div class="section-title">
+                            <h2>Важкiя Тэгі</h2>
+                        </div>
+                        
+                        <div class="tags">
+                            <ul class="mt-3">
+                            <?php
+                            $tags = get_tags([
+                                'number' => 20,
+                                'orderby' => 'count', 
+                                'order' => 'DESC'
+                            ]);
+                            if ( $tags ) :
+                                foreach ( $tags as $tag ) : ?>
+                                    <li><a href="<?php echo esc_url( get_tag_link( $tag->term_id ) ); ?>" title="<?php echo esc_attr( $tag->name ); ?>"><?php echo esc_html( $tag->name ); ?></a></li>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                            </ul>
+                        </div>
                         <?php endif; ?>
+                        <!-- /Tags -->
 
                     </div>
 
@@ -221,49 +212,12 @@ get_header(); ?>
             </div>
         </section><!-- End  Section -->
 
-        <!-- ======= On Focus Section ======= -->
-        <section id="onfocus" class="onfocus">
-            <div class="container p-0">
-                <div class="row g-0">
-                    <div class="content d-flex flex-column justify-content-center h-100">
+        <?php while(have_posts()) {
+            the_post(); 
+            the_content();
+        }
+        ?>
 
-                        <h3>Паважаныя сябры!</h3>
-                        <p>Мы старанна працуем на працягу ўжо некалькіх гадоў і выконваем сваю місію.</p>
-                        <p class="fst-italic">
-                            Калі б кожны, хто чытае гэта, ахвяраваў $5 CAD замест кубка кавы, альбо $10 CAD замест гамбургера, альбо $20 CAD замест пачкі цыгарэт
-                            мы маглі б ажыццявіць тое, тое і вон тое. 
-                        </p>
-                        <p>Але не кожны можа зрабіць ахвяраванне, а з тых, хто можа — не кожны зробіць. І ў гэтым няма нічога дрэннага. Кожны год хапае тых, хто вырашае зрабіць падарунак. У гэтым годзе, калі ласка, падумайце як вы можаце дапамагчы і падтрымць ЗБК.</p>
-                        <a href="#" class="read-more align-self-start"><span>Ахвяраваць</span><i class="bi bi-arrow-right"></i></a>
-
-                    </div>
-                </div>
-            </div>
-        </section><!-- End On Focus Section -->
-
-        <!-- ======= About Section ======= -->
-        <section id="about" class="about section-bg">
-            <div class="container">
-
-                <div class="section-title">
-                    <h2 style="font-size: 16px;color:#aaaaaa;font-weight: 600;">Наша місія</h2>
-                </div>
-
-                <div class="row content">
-                    <div class="col-lg-6">
-                        <p>Згуртаванне беларусаў Канады было заснавана ў 1948 годзе для прадстаўлення беларуска-канадскай супольнасці перад народам і ўрадам Канады. Місія ЗБК заключаецца ў захаванні беларускай культурнай і гістарычнай спадчыны і прасоўванні беларускай мовы, а таксама ў падтрымцы і садзейнічанні дэмакратычным зменам у Беларусі.</p>
-                        <p>Вядучая арганізацыя дыяспары, прызнаная ва ўсім свеце, задзейнічае вялікі пул навукоўцаў, спецыялістаў і экспертаў па ўсёй Канадзе, ЗША і свеце, каб даць інфармаванае і ўзважанае меркаванне па пытаннях, звязаных з Беларуссю.</p>
-                        <p class="fst-italic">
-                            Паводле перапісу 2016 года, у Канадзе пражывае крыху менш за 21 000 канадцаў беларускага паходжання, што робіць дыяспару пятым па велічыні беларускім насельніцтвам пасля Расіі, Украіны, Польшчы і ЗША.
-                        </p>
-                    </div>
-                    <div class="col-lg-6 pt-4 pt-lg-0">
-                        <img src="<?= get_theme_file_uri('/images/zbk-2.jpg'); ?>" alt="" class="img-fluid" style="border-radius: 5px;">
-                    </div>
-                </div>
-
-            </div>
-        </section><!-- End About Section -->
 
     </main><!-- End #main -->
 

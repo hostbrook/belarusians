@@ -15,11 +15,112 @@ function theme_features(){
 }
 add_action('after_setup_theme', 'theme_features');
 
+
+/**
+ * Widget areas in side bars
+ */
+function bca_register_sidebars() {
+
+	// Register the right sidebar at the front page
+	register_sidebar(
+		array(
+			'id'            => 'front-page-right',
+			'name'          => __( 'Front Page right sidebar' ),
+			'description'   => __( 'The right sidebar for the front page widgets.' ),
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '<div class="section-title"><h2>',
+			'after_title'   => '</h2></div>'
+		)
+	);
+
+	// Register the widget area at the top-left of front page
+	register_sidebar(
+		array(
+			'id'            => 'front-page-top-left',
+			'name'          => __( 'Front Page Top-Left' ),
+			'description'   => __( 'Widget area at the top-left of front page' ),
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '',
+			'after_title'   => ''
+		)
+	);
+    
+	// Register the widget area at the top-right of front page
+	register_sidebar(
+		array(
+			'id'            => 'front-page-top-right',
+			'name'          => __( 'Front Page Top-Right' ),
+			'description'   => __( 'Widget area at the top-right of front page' ),
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '',
+			'after_title'   => ''
+		)
+	);
+
+	// Register the left footer widget area "footer-info"
+	register_sidebar(
+		array(
+			'id'            => 'footer-info',
+			'name'          => __( 'Footer-Info (Left)' ),
+			'description'   => __( 'Footer left widget area "footer-info"' ),
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '<h4>',
+			'after_title'   => '</h4>'
+		)
+	);
+
+	// Register the right footer widget area "footer-newsletter"
+	register_sidebar(
+		array(
+			'id'            => 'footer-newsletter',
+			'name'          => __( 'Footer-Newsletter (Right)' ),
+			'description'   => __( 'Footer right widget area "footer-newsletter"' ),
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '<h4>',
+			'after_title'   => '</h4>'
+		)
+	);
+
+	// Register the left copyright widget area
+	register_sidebar(
+		array(
+			'id'            => 'copyright-left',
+			'name'          => __( 'Copyright Left' ),
+			'description'   => __( 'Footer Copyright Left widget area' ),
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '',
+			'after_title'   => ''
+		)
+	);
+
+	// Register the right copyright widget area
+	register_sidebar(
+		array(
+			'id'            => 'copyright-right',
+			'name'          => __( 'Copyright Right' ),
+			'description'   => __( 'Footer Copyright Right widget area' ),
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '',
+			'after_title'   => ''
+		)
+	);
+}
+add_action( 'widgets_init', 'bca_register_sidebars' );
+add_filter('use_widgets_block_editor', '__return_false');
+
+
 /**
  * Connect theme CSS and JS
  */
 function bca_files(){
-    wp_enqueue_style('bca_main_styles', get_theme_file_uri('/css/bca_main.css'), [], '221029'); //rand(10,100000)
+    wp_enqueue_style('bca_main_styles', get_theme_file_uri('/css/bca_main.css'), [], '221031'); //rand(10,100000)
     wp_enqueue_script('bca_main_js', get_theme_file_uri('/js/bca_main.js'), [], '221029', true);
 }
 add_action('wp_enqueue_scripts', 'bca_files');
@@ -39,6 +140,7 @@ function BCALoginCSS(){
 }
 
 add_filter( 'login_display_language_dropdown', '__return_false' );
+
 
 /**
  * Simple Count Post Views
