@@ -167,9 +167,9 @@ get_header(); ?>
                             <li><i class="bi bi-clock"></i> <?= $eventDate->format('F j, Y g:i a'); ?></li>
                         </ul>
 
-                        <?= has_excerpt() ? the_excerpt() : wp_trim_words(get_the_content(), 20); ?>
+                        <p><?= has_excerpt() ? the_excerpt() : wp_trim_words(get_the_content(), 20); ?></p>
 
-                        <p class="pb-4"><a href="<?php the_permalink(); ?>" class="primary-button">Чытаць болей</a></p>
+                        <p><a href="<?php the_permalink(); ?>">Чытаць болей <i class="bi bi-arrow-right"></i></a></p>
 
                         <?php } 
                         if ($eventsQty == 0) : ?>
@@ -183,7 +183,7 @@ get_header(); ?>
                         <!-- /Widget area -->
 
                         <!-- Tags -->
-                        <?php if ($eventsQty < 2) : ?>
+                        <?php if ($eventsQty == 0) : ?>
                         <div class="section-title">
                             <h2>Важкiя Тэгі</h2>
                         </div>

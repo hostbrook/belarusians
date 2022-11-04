@@ -41,15 +41,15 @@
     <div id="topbar" class="d-flex align-items-center fixed-top">
         <div class="container d-flex justify-content-between">
             <div class="contact-info d-flex align-items-center">
-                <i class="bi bi-envelope"></i> <a href="mailto:bca@belarusian.ca">bca@belarusians.ca</a>
+                <!-- Widget area: TopBar-Left -->
+                <?php dynamic_sidebar( 'topbar-left' ); ?>
+                <!-- /Widget area -->
             </div>
             <div class="d-flex social-links align-items-center">
                 <a href="/" class="langbar">EN</a> | <a href="/" class="langbar">BE</a>
-                <a href="http://twitter.com/belaruscanada" target="_blank"><i class="bi bi-twitter"></i></a>
-                <a href="http://facebook.com/belarusian.canadian.alliance" target="_blank"><i class="bi bi-facebook"></i></a>
-                <a href="https://www.linkedin.com/company/belarusian-canadian-alliance" target="_blank"><i class="bi bi-linkedin"></i></a>
-                <a href="https://www.instagram.com/belaruscanada/" target="_blank"><i class="bi bi-instagram"></i></a>
-                <a href="https://t.me/belcanalliance" target="_blank"><i class="bi bi-telegram"></i></a>
+                <!-- Widget area: TopBar-Right -->
+                <?php dynamic_sidebar( 'topbar-right' ); ?>
+                <!-- /Widget area -->
             </div>
         </div>
     </div>

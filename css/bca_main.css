@@ -109,6 +109,52 @@ h6 {
   opacity: 1;
 }
 
+
+/*--------------------------------------------------------------
+# WP Admin bar to the bottom of the page
+--------------------------------------------------------------*/
+body.admin-bar #wphead {
+   padding-top: 0;
+}
+#wpadminbar {
+    top: auto !important;
+    bottom: 0;
+    position: fixed;
+}
+#wpadminbar .quicklinks .menupop ul {
+    position: absolute;
+    bottom: 32px;
+    background-color: #23282d;
+}
+#wpadminbar .quicklinks .menupop ul + ul {
+    bottom: 70px;
+}
+#wpadminbar .quicklinks .menupop ul ul {
+    transform: translateY(62px);
+    -webkit-transform: translateY(62px);
+    -ms-transform: translateY(62px);
+}
+#wpadminbar .quicklinks .menupop ul.ab-sub-secondary {
+    bottom: 64px;
+    position: absolute;
+}
+@media screen and (max-width: 782px) {
+    #wpadminbar .quicklinks .menupop ul {
+        bottom: 46px;
+    }
+
+    #wpadminbar .quicklinks .menupop ul + ul,
+    #wpadminbar .quicklinks .menupop ul.ab-sub-secondary {
+        bottom: 86px;
+    }
+
+    #wpadminbar .quicklinks .menupop ul ul {
+        transform: translateY(92px);
+        -webkit-transform: translateY(92px);
+        -ms-transform: translateY(92px);
+    }
+}
+
 /*--------------------------------------------------------------
 # Top Bar
 --------------------------------------------------------------*/
@@ -141,7 +187,7 @@ h6 {
 }
 #topbar .social-links a {
   color: #96191c;
-  padding-left: 15px;
+  padding-left: 10px;
   display: inline-block;
   line-height: 1px;
   transition: 0.3s;
@@ -417,7 +463,7 @@ h6 {
 # Slides Section
 --------------------------------------------------------------*/
 #slides {
-    background-color: rgba(30, 30, 30, 0.8);
+    background-color: rgba(30, 30, 30, 0.9);
     margin-top: 80px;
     margin-bottom: 0;
     padding-top: 0;
@@ -729,14 +775,16 @@ section {
 }
 .about .content h2 {
   font-weight: 700;
-  font-size: 48px;
+  font-size: 42px;
   line-height: 60px;
   text-transform: uppercase;
+  color: var(--color-secondary);
 }
 .about .content h3 {
   font-weight: 500;
   line-height: 32px;
   font-size: 24px;
+  color: var(--color-secondary-light);
 }
 .about .content ul {
   list-style: none;

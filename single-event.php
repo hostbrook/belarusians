@@ -22,7 +22,7 @@ while(have_posts()) {
             <ol>
                 <li><a href="<?= site_url(); ?>">Галоўная</a></li>
                 <li><a href="/events">Падзеі</a></li>
-                <li><?php the_title(); ?></li>
+                <li><?= $eventDate->format('F j, Y'); ?> </li>
             </ol>
         </div>
 

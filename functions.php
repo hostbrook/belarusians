@@ -21,6 +21,32 @@ add_action('after_setup_theme', 'theme_features');
  */
 function bca_register_sidebars() {
 
+	// Register the Left TopBar widget area
+	register_sidebar(
+		array(
+			'id'            => 'topbar-left',
+			'name'          => __( 'TopBar-Left' ),
+			'description'   => __( 'TopBar-Left widget area' ),
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '',
+			'after_title'   => ''
+		)
+	);
+
+    // Register the Right TopBar widget area
+	register_sidebar(
+		array(
+			'id'            => 'topbar-right',
+			'name'          => __( 'TopBar-Right' ),
+			'description'   => __( 'TopBar-Right widget area' ),
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '',
+			'after_title'   => ''
+		)
+	);
+
 	// Register the right sidebar at the front page
 	register_sidebar(
 		array(
@@ -120,7 +146,7 @@ add_filter('use_widgets_block_editor', '__return_false');
  * Connect theme CSS and JS
  */
 function bca_files(){
-    wp_enqueue_style('bca_main_styles', get_theme_file_uri('/css/bca_main.css'), [], '221030'); //rand(10,100000)
+    wp_enqueue_style('bca_main_styles', get_theme_file_uri('/css/bca_main.css'), [], '221103-01'); //rand(10,100000)
     wp_enqueue_script('bca_main_js', get_theme_file_uri('/js/bca_main.js'), [], '221029', true);
 }
 add_action('wp_enqueue_scripts', 'bca_files');
