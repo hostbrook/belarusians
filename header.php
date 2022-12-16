@@ -36,9 +36,8 @@
 </head>
 
 <body>
-
     <!-- ======= Top Bar ======= -->
-    <div id="topbar" class="d-flex align-items-center fixed-top">
+    <div id="topbar" class="d-flex align-items-center fixed-top" <?php if ( is_admin_bar_showing() ) echo 'style="top: 32px;"'; ?>>
         <div class="container d-flex justify-content-between">
             <div class="contact-info d-flex align-items-center">
                 <!-- Widget area: TopBar-Left -->
@@ -55,8 +54,7 @@
     </div>
 
     <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top">
-
+    <header id="header" class="fixed-top" <?php if ( is_admin_bar_showing() ) echo 'style="top: 72px;"'; ?>>
         <!-- Search -->
         <div class="top-search collapse bg-light" id="search-open" data-bs-parent="#search">
             <div class="container">
