@@ -36,7 +36,7 @@ get_header();
                 $today = date('Y-m-d H:i');
                 $events = new WP_Query([
                     'post_type' => 'event',
-                    'posts_per_page' => 10,
+                    'posts_per_page' => 20,
                     'meta_key' => 'event_date',
                     'orderby' => 'meta_value',
                     'order' => 'ASC',
@@ -95,7 +95,7 @@ get_header();
                 <!-- End blog posts list -->
 
                 <!-- Pagination -->
-                <?php the_posts_pagination(); ?>
+                <?php //the_posts_pagination(); ?>
                 <!-- End Pagination -->
 
             </div>
