@@ -32,10 +32,28 @@ get_header();
 
                 <div class="row gy-4 posts-list">
                 <?php 
-                while (have_posts()) :
-                    the_post();
+
+                $today = date('Y-m-d H:i');
+                $events = new WP_Query([
+                    'post_type' => 'event',
+                    'posts_per_page' => 10,
+                    'meta_key' => 'event_date',
+                    'orderby' => 'meta_value',
+                    'order' => 'ASC',
+                    'meta_query' => [
+                        [
+                            'key' => 'event_date',
+                            'compare' => '>=',
+                            'value' => $today
+                        ]
+                    ]
+                ]);
+
+                $eventsQty = $events->found_posts;
+
+                while($events->have_posts()) {
+                    $events->the_post();
                     $eventDate = new DateTime(get_field('event_date'));
-                    $today = date('Y-m-d H:i');
                 ?>
 
                     <article class="d-flex flex-column events">
@@ -69,7 +87,10 @@ get_header();
 
                     </article>
 
-                <?php endwhile; ?>
+                <?php } 
+                if ($eventsQty == 0) : ?>
+                    <p>Right now no upcoming events.</p>
+                <?php endif; ?>
                 </div>
                 <!-- End blog posts list -->
 
