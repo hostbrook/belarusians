@@ -169,7 +169,7 @@ get_header(); ?>
 
                         <p><?= has_excerpt() ? the_excerpt() : wp_trim_words(get_the_content(), 20); ?></p>
 
-                        <p><a href="<?php the_permalink(); ?>">Чытаць болей <i class="bi bi-arrow-right"></i></a></p>
+                        <p style="margin-top:10px;margin-bottom:20px;"><a href="<?php the_permalink(); ?>">Чытаць болей <i class="bi bi-arrow-right"></i></a></p>
 
                         <?php } 
                         if ($eventsQty == 0) : ?>
@@ -178,9 +178,11 @@ get_header(); ?>
                         </div>
                         <!-- /Events -->
 
+                        <?php if ($eventsQty < 3) : ?>
                         <!-- Widget area: Front Page right sidebar -->
                         <?php dynamic_sidebar( 'front-page-right' ); ?>
                         <!-- /Widget area -->
+                        <?php endif; ?>
 
                         <!-- Tags -->
                         <?php if ($eventsQty == 0) : ?>
