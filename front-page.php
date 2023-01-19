@@ -169,12 +169,18 @@ get_header(); ?>
 
                         <p><?= has_excerpt() ? the_excerpt() : wp_trim_words(get_the_content(), 20); ?></p>
 
-                        <p style="margin-top:10px;margin-bottom:20px;"><a href="<?php the_permalink(); ?>">Чытаць болей <i class="bi bi-arrow-right"></i></a></p>
+                        <p style="padding-top:10px;padding-bottom:20px;"><a href="<?php the_permalink(); ?>">Чытаць болей <i class="bi bi-arrow-right"></i></a></p>
 
                         <?php } 
+
+                        if ($eventsQty >= 3) : ?>
+                        <a href="/events" class="primary-button">Усе падзеi <i class="bi bi-arrow-right"></i></a>
+                        <?php endif;
+
                         if ($eventsQty == 0) : ?>
                         <p>Right now no upcoming events.</p>
                         <?php endif; ?>
+                        
                         </div>
                         <!-- /Events -->
 
