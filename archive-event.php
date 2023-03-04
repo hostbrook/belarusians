@@ -89,7 +89,11 @@ get_header();
 
                 <?php } 
                 if ($eventsQty == 0) : ?>
-                    <p>Right now no upcoming events.</p>
+
+                <div class="alert alert-info" role="alert">
+                    На гэты час няма найбліжэйшых падзей.
+                </div>
+
                 <?php endif; ?>
                 </div>
                 <!-- End blog posts list -->
@@ -97,6 +101,10 @@ get_header();
                 <!-- Pagination -->
                 <?php //the_posts_pagination(); ?>
                 <!-- End Pagination -->
+                
+                <div class="mt-3">
+                        <a href="/past-events" class="primary-button">Мінулыя Падзеі <i class="bi bi-arrow-right"></i></a>
+                </div>
 
             </div>
             <!-- End Blog posts -->

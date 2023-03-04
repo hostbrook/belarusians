@@ -87,7 +87,9 @@
                         
                         <?php if ($eventsdoNotExist) : ?>
 
-                        <p>Right now no upcoming events.</p>
+                            <div class="alert alert-info" role="alert">
+                                На гэты час няма бліжэйшых падзей.
+                            </div>
 
                         <?php endif; ?>
                     </div>
