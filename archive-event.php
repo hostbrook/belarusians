@@ -102,7 +102,7 @@ get_header();
                 <?php //the_posts_pagination(); ?>
                 <!-- End Pagination -->
                 
-                <div class="mt-4 pt-5 border-top">
+                <div class="mt-5 pt-5 border-top">
                         <a href="/past-events" class="primary-button">Мінулыя Падзеі <i class="bi bi-arrow-right"></i></a>
                 </div>
 
