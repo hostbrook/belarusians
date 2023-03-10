@@ -37,6 +37,7 @@ get_header();
                 $events = new WP_Query([
                     'post_type' => 'event',
                     'posts_per_page' => 6,
+                    'paged' => get_query_var( 'paged' ),
                     'meta_key' => 'event_date',
                     'orderby' => 'meta_value',
                     'order' => 'DESC',
@@ -48,8 +49,6 @@ get_header();
                         ]
                     ]
                 ]);
-
-                $eventsQty = $events->found_posts;
 
                 while($events->have_posts()) {
                     $events->the_post();
@@ -87,14 +86,8 @@ get_header();
 
                     </article>
 
-                <?php } 
-                if ($eventsQty == 0) : ?>
-
-                <div class="alert alert-info" role="alert">
-                    На гэты час няма бліжэйшых падзей.
-                </div>
-
-                <?php endif; ?>
+                <?php } ?>
+                
                 </div>
                 <!-- End blog posts list -->
 
