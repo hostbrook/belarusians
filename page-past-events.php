@@ -39,7 +39,7 @@ get_header();
                     'posts_per_page' => 6,
                     'meta_key' => 'event_date',
                     'orderby' => 'meta_value',
-                    'order' => 'ASC',
+                    'order' => 'DESC',
                     'meta_query' => [
                         [
                             'key' => 'event_date',
@@ -99,7 +99,7 @@ get_header();
                 <!-- End blog posts list -->
 
                 <!-- Pagination -->
-                <?php //the_posts_pagination(); ?>
+                <?php the_posts_pagination(); ?>
                 <!-- End Pagination -->
 
             </div>
