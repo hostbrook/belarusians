@@ -2,9 +2,10 @@
 
 function theme_features(){
     // Register Menus
-    register_nav_menu('subMenuAbout', 'Sub Menu About');
-    register_nav_menu('subMenuPrograms', 'Sub Menu Programs');
-    register_nav_menu('subMenuCommunities', 'Sub Menu Communities');
+    register_nav_menu('topMenu', 'Main Top Menu');
+    //register_nav_menu('subMenuAbout', 'Sub Menu About');
+    //register_nav_menu('subMenuPrograms', 'Sub Menu Programs');
+    //register_nav_menu('subMenuCommunities', 'Sub Menu Communities');
     register_nav_menu('footerMenuLeft', 'Footer Left Menu');
     register_nav_menu('footerMenuRight', 'Footer Right Menu');
 
@@ -14,6 +15,15 @@ function theme_features(){
     add_theme_support('post-thumbnails');
 }
 add_action('after_setup_theme', 'theme_features');
+
+
+/**
+ * Register Custom Navigation Walker
+ */
+function register_navwalker(){
+	require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
+}
+add_action( 'after_setup_theme', 'register_navwalker' );
 
 
 /**

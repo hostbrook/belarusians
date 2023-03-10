@@ -81,60 +81,43 @@
             </a>
 
             <nav id="navbar" class="navbar">
+
+                <?php  //wp_nav_menu(array( 'theme_location' => 'topMenu', 'depth' => 2, 'container' => '' )); 
+                    wp_nav_menu( array(
+                        'theme_location'  => 'topMenu',
+                        'depth'           => 2, // 1 = no dropdowns, 2 = with dropdowns.
+                        'container'       => '',
+                        'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+                        'walker'          => new WP_Bootstrap_Navwalker(),
+                    ) );                
+                ?>
+                
+                <?php /*
                 <ul>
                     <!--<li><a href="<?= site_url(); ?>" <?= is_page('home') ? 'class="active"' : '' ?>>Галоўная</a></li>-->
                     <li class="dropdown"><a href="#"><span>Хто мы</span> <i class="bi bi-chevron-down"></i></a>
-<?php  wp_nav_menu(array( 'theme_location' => 'subMenuAbout', 'depth' => 1, 'container' => '' )); ?>
+                        <?php  wp_nav_menu(array( 'theme_location' => 'subMenuAbout', 'depth' => 1, 'container' => '' )); ?>
                     </li>
                     <li><a href="/news" <?= is_page('news') ? 'class="active"' : '' ?>>Навіны</a></li>
                     <li><a href="/events" <?= is_page('events') ? 'class="active"' : '' ?>>Падзеі</a></li>
                     <li class="dropdown"><a href="#"><span>Праграмы</span> <i class="bi bi-chevron-down"></i></a>
-<?php  wp_nav_menu(array( 'theme_location' => 'subMenuPrograms', 'depth' => 1, 'container' => '' )); ?>
+                        <?php  wp_nav_menu(array( 'theme_location' => 'subMenuPrograms', 'depth' => 1, 'container' => '' )); ?>
                     </li>
                     <li class="dropdown"><a href="#"><span>Суполкі</span> <i class="bi bi-chevron-down"></i></a>
-<?php  wp_nav_menu(array( 'theme_location' => 'subMenuCommunities', 'depth' => 1, 'container' => '' )); ?>
+                        <?php  wp_nav_menu(array( 'theme_location' => 'subMenuCommunities', 'depth' => 1, 'container' => '' )); ?>
                     </li>
                     
                     <li class="d-none d-lg-flex"><a class="nav-link" data-bs-toggle="collapse" href="#search-open"><i class="bi bi-search"></i></a></li>
                     <li><a href="/become-volunteer" class="getstarted">Далучыцца</a></li>
                 </ul>
-
-                <!--
-                <ul>
-                    <li><a href="/" class="active">Галоўная</a></li>
-                    <li class="dropdown"><a href="#"><span>Хто мы</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="/about">Хто мы</a></li>
-                            <li><a href="/belarusians-in-canada">Наша гісторыя</a></li>
-                            <li><a href="/">Статут ЗБК</a></li>
-                            <li><a href="/">Сувязь з намі</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="/news.html">Навіны</a></li>
-                    <li class="dropdown"><a href="#"><span>Праграмы</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="/">Праграмы для дарослых</a></li>
-                            <li><a href="/">Праграмы для дзяцей</a></li>
-                            <li><a href="/">Часопісы і літаратура</a></li>
-                            <li><a href="/">Фольк-гурты</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a href="#"><span>Суполкі</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="https://www.belarusian.ca/be/ottawa-chapter/" target="_blank">Суполка ў Аттаве</a></li>
-                            <li><a href="https://www.belarusian.ca/be/toronto-chapter/" target="_blank">Суполка ў Таронта</a></li>
-                            <li><a href="https://www.facebook.com/groups/260880037671053" target="_blank">Суполка ў Калгары</a></li>
-                            <li><a href="#" target="_blank">Суполка ў Эдмантане</a></li>
-                            <li><a href="https://www.facebook.com/groups/belbc/" target="_blank">Беларусы ў ВС</a></li>
-                        </ul>
-                    </li>
-                    <li class="d-none d-lg-flex"><a class="nav-link" data-bs-toggle="collapse" href="#search-open"><i class="bi bi-search"></i></a></li>
-                    <li><a href="/" class="getstarted">Далучыцца</a></li>
-                </ul>
-                -->
+                */ ?>
                 <a class="nav-link d-lg-none" style="padding-right:30px;" data-bs-toggle="collapse" href="#search-open"><i class="bi bi-search"></i></a>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
 
+            <script>
+                const topMenuUL = document.getElementById("menu-top-menu");
+                topMenuUL.insertAdjacentHTML('beforeend',`<li class="d-none d-lg-flex"><a class="nav-link" data-bs-toggle="collapse" href="#search-open"><i class="bi bi-search"></i></a></li><li><a href="/become-volunteer" class="getstarted">Далучыцца</a></li>`);
+            </script>
         </div>
     </header><!-- End Header -->
