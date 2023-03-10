@@ -34,10 +34,12 @@ get_header();
                 <?php 
 
                 $today = date('Y-m-d H:i');
+                $paged = get_query_var('paged') ? get_query_var('page') : 1;
+
                 $events = new WP_Query([
                     'post_type' => 'event',
                     'posts_per_page' => 6,
-                    'paged' => get_query_var( 'paged' ),
+                    'paged' => $paged,
                     'meta_key' => 'event_date',
                     'orderby' => 'meta_value',
                     'order' => 'DESC',
@@ -93,6 +95,16 @@ get_header();
 
                 <!-- Pagination -->
                 <?php the_posts_pagination(); ?>
+                <?php
+                    $big = 999999999; // need an unlikely integer
+
+                    echo paginate_links( array(
+                        'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+                        'format' => '?paged=%#%',
+                        'current' => max( 1, get_query_var('paged') ),
+                        'total' => $events->max_num_pages
+                    ) );
+                ?>
                 <!-- End Pagination -->
 
             </div>
