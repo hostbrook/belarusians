@@ -34,7 +34,7 @@ get_header();
                 <?php 
 
                 $today = date('Y-m-d H:i');
-                $paged = get_query_var('paged') ? get_query_var('page') : 1;
+                $paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
 
                 $events = new WP_Query([
                     'post_type' => 'event',
