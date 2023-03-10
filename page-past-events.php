@@ -94,17 +94,19 @@ get_header();
                 <!-- End blog posts list -->
 
                 <!-- Pagination -->
-                <?php the_posts_pagination(); ?>
-                <?php
-                    $big = 999999999; // need an unlikely integer
-
-                    echo paginate_links( array(
-                        'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-                        'format' => '?paged=%#%',
-                        'current' => max( 1, get_query_var('paged') ),
-                        'total' => $events->max_num_pages
-                    ) );
-                ?>
+                <nav class="navigation pagination" aria-label="Posts">
+                    <div class="nav-links">
+                    <?php
+                        $big = 999999999; // need an unlikely integer
+                        echo paginate_links( array(
+                            'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+                            'format' => '?paged=%#%',
+                            'current' => max( 1, get_query_var('paged') ),
+                            'total' => $events->max_num_pages
+                        ) );
+                    ?>
+                    </div>
+                </nav>
                 <!-- End Pagination -->
 
             </div>
