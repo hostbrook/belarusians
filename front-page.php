@@ -88,13 +88,15 @@ get_header(); ?>
                     <!-- Latest news content -->
                     <div class="col-lg-8 recent-posts pe-lg-5">
                         <div class="section-title" style="padding-top:40px;padding-bottom:40px;">
-                            <h2 style="font-size: 16px;color:#aaaaaa;font-weight: 600;">Навіны</h2>
+                            <h2 style="font-size: 16px;color:#aaaaaa;font-weight: 600;">
+                                <?php if (lang('en')): ?>News<?php else :?>Навіны<?php endif; ?>
+                            </h2>
                         </div>
 
                         <!-- Latest news -->
                         <div class="row gy-5">
                             <?php 
-                                $query = new WP_Query(['post_type'=>'post', 'posts_per_page' => '6']);
+                                $query = new WP_Query(['post_type'=>'post', 'posts_per_page' => '6', 'lang' => 'be,en']);
                                 while ($query->have_posts()) :
                                 $query->the_post();
                             ?>
@@ -129,7 +131,7 @@ get_header(); ?>
                         <div class="events">
 
                         <div class="section-title pt-2">
-                            <h2>Падзеі</h2>
+                            <h2><?php if (lang('en')): ?>Events<?php else :?>Падзеі<?php endif; ?></h2>
                         </div>
 
                         <?php
@@ -169,17 +171,17 @@ get_header(); ?>
 
                         <p><?= has_excerpt() ? the_excerpt() : wp_trim_words(get_the_content(), 20); ?></p>
 
-                        <p style="padding-bottom:20px;"><a href="<?php the_permalink(); ?>">Чытаць болей <i class="bi bi-arrow-right"></i></a></p>
+                        <p style="padding-bottom:20px;"><a href="<?php the_permalink(); ?>"><?php if (lang('en')): ?>Read more<?php else :?>Чытаць болей<?php endif; ?> <i class="bi bi-arrow-right"></i></a></p>
 
                         <?php } 
 
                         if ($eventsQty >= 3) : ?>
-                        <a href="/events" class="primary-button">Усе падзеi <i class="bi bi-arrow-right"></i></a>
+                        <a href="/events" class="primary-button"><?php if (lang('en')): ?>All Events<?php else :?>Усе падзеi<?php endif; ?> <i class="bi bi-arrow-right"></i></a>
                         <?php endif;
 
                         if ($eventsQty == 0) : ?>
                         <div class="alert alert-info" role="alert">
-                            На гэты час няма бліжэйшых падзей.
+                            <?php if (lang('en')): ?>There are no upcomming events.<?php else :?>На гэты час няма бліжэйшых падзей.<?php endif; ?>                            
                         </div>
                         <?php endif; ?>
 
@@ -195,7 +197,7 @@ get_header(); ?>
                         <!-- Tags -->
                         <?php if ($eventsQty == 0) : ?>
                         <div class="section-title">
-                            <h2>Важкiя Тэгі</h2>
+                            <h2><?php if (lang('en')): ?>Tags<?php else :?>Важкiя Тэгі<?php endif; ?></h2>
                         </div>
                         
                         <div class="tags">
@@ -204,7 +206,8 @@ get_header(); ?>
                             $tags = get_tags([
                                 'number' => 20,
                                 'orderby' => 'count', 
-                                'order' => 'DESC'
+                                'order' => 'DESC',
+                                'lang' => 'en,be'
                             ]);
                             if ( $tags ) :
                                 foreach ( $tags as $tag ) : ?>

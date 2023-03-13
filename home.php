@@ -11,10 +11,10 @@ get_header(); ?>
 <div class="container">
 
     <div class="d-flex justify-content-between align-items-center">
-    <h2>Навіны</h2>
+    <h2><?php if (lang('en')): ?>News<?php else :?>Навіны<?php endif; ?></h2>
     <ol>
-        <li><a href="<?= site_url(); ?>">Галоўная</a></li>
-        <li>Навіны</li>
+        <li><a href="<?= site_url(); ?>"><?php if (lang('en')): ?>Home<?php else :?>Галоўная<?php endif; ?></a></li>
+        <li><?php if (lang('en')): ?>News<?php else :?>Навіны<?php endif; ?></li>
     </ol>
     </div>
 
@@ -60,7 +60,7 @@ get_header(); ?>
                             </div>
             
                             <div class="read-more mt-auto align-self-end">
-                                <a href="<?php the_permalink(); ?>">Чытаць болей</a>
+                                <a href="<?php the_permalink(); ?>"><?php if (lang('en')): ?>Read more<?php else :?>Чытаць болей<?php endif; ?></a>
                             </div>
     
                         </article>

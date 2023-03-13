@@ -18,10 +18,10 @@ while(have_posts()) {
     <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-            <h2>Падзеі</h2>
+            <h2><?php if (lang('en')): ?>Events<?php else :?>Падзеі<?php endif; ?></h2>
             <ol>
-                <li><a href="<?= site_url(); ?>">Галоўная</a></li>
-                <li><a href="/events">Падзеі</a></li>
+                <li><a href="<?= site_url(); ?>"><?php if (lang('en')): ?>Home<?php else :?>Галоўная<?php endif; ?></a></li>
+                <li><a href="/events"><?php if (lang('en')): ?>Events<?php else :?>Падзеі<?php endif; ?></a></li>
                 <li><?= $eventDate->format('F j, Y'); ?> </li>
             </ol>
         </div>
@@ -51,9 +51,9 @@ while(have_posts()) {
                         <li><i class="bi bi-geo-alt"></i> <?php the_field('event_location'); ?></li>
                         <li><i class="bi bi-clock"></i> <?= $eventDate->format('F j, Y g:i a'); ?> 
                         <?php if ($today > get_field('event_date')): ?>
-                            <span class="badge rounded-pill bg-danger">Event completed!</span>
+                            <span class="badge rounded-pill bg-danger"><?php if (lang('en')): ?>Event completed!<?php else :?>Падзея закончылась.<?php endif; ?></span>
                         <?php endif; ?></li>
-                        <li><i class="bi bi-eye"></i> <?= hb_get_post_view(); ?> Праглядаў</li>
+                        <li><i class="bi bi-eye"></i> <?= hb_get_post_view(); ?> <?php if (lang('en')): ?>Views<?php else :?>Праглядаў<?php endif; ?></li>
                     </ul>
     
                     <div class="content">
@@ -75,7 +75,7 @@ while(have_posts()) {
                 </article><!-- End blog post -->
     
                 <div class="comments">
-                    <p><strong>Comments are turned off.</strong></p>
+                    <p><strong><?php if (lang('en')): ?>Comments are turned off.<?php else :?>Каментарыi адключаны.<?php endif; ?></strong></p>
                 </div><!-- End blog comments -->
     
             </div>

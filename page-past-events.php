@@ -12,10 +12,10 @@ get_header();
 <div class="container">
 
     <div class="d-flex justify-content-between align-items-center">
-    <h2>Мінулыя Падзеі</h2>
+    <h2><?php if (lang('en')): ?>Past Events<?php else :?>Мінулыя Падзеі<?php endif; ?></h2>
     <ol>
-        <li><a href="<?= site_url(); ?>">Галоўная</a></li>
-        <li>Мінулыя Падзеі</li>
+        <li><a href="<?= site_url(); ?>"><?php if (lang('en')): ?>Home<?php else :?>Галоўная<?php endif; ?></a></li>
+        <li><?php if (lang('en')): ?>Past Events<?php else :?>Мінулыя Падзеі<?php endif; ?></li>
     </ol>
     </div>
 
@@ -73,9 +73,9 @@ get_header();
                             <li><i class="bi bi-geo-alt"></i> <?php the_field('event_location'); ?></li>
                             <li><i class="bi bi-clock"></i> <?= $eventDate->format('F j, Y g:i a'); ?>
                             <?php if ($today > get_field('event_date')): ?>
-                                <span class="badge rounded-pill bg-danger">Event completed!</span>
+                                <span class="badge rounded-pill bg-danger"><?php if (lang('en')): ?>Event completed!<?php else :?>Падзея закончылася.<?php endif; ?></span>
                             <?php endif; ?></li>
-                            <li><i class="bi bi-eye"></i> <?= hb_get_post_view(); ?> Праглядаў</li>
+                            <li><i class="bi bi-eye"></i> <?= hb_get_post_view(); ?> <?php if (lang('en')): ?>Views<?php else :?>Праглядаў<?php endif; ?></li>
                         </ul>
     
                         <div class="content">
@@ -83,7 +83,7 @@ get_header();
                         </div>
         
                         <div class="read-more mt-auto align-self-end">
-                            <a href="<?php the_permalink(); ?>">Чытаць болей</a>
+                            <a href="<?php the_permalink(); ?>"><?php if (lang('en')): ?>Read more<?php else :?>Чытаць болей<?php endif; ?></a>
                         </div>
 
                     </article>

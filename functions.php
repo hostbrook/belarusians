@@ -1,11 +1,32 @@
 <?php
 
+/**
+ * Returns true if Polylang plugin is active and current language matchs to provided language code 
+ */
+function lang($lang){
+    if ( function_exists("pll_current_language") && pll_current_language() == $lang) return true;    
+    return false;
+}
+
+
+/**
+ * Temporary solution (!!!) lets to show all EN and BE posts independly from selected language
+ * Remove or comment if you do not need this functionality
+ */
+function include_language($query) {
+    if ( $query->is_main_query() ) { //add more condition here if needed
+		$query->set('tax_query', '');
+		$query->set('lang', '');
+    }
+} 
+if (function_exists('pll_current_language')) {
+    add_action( 'pre_get_posts', 'include_language' ); 
+}
+
+
 function theme_features(){
     // Register Menus
     register_nav_menu('topMenu', 'Main Top Menu');
-    //register_nav_menu('subMenuAbout', 'Sub Menu About');
-    //register_nav_menu('subMenuPrograms', 'Sub Menu Programs');
-    //register_nav_menu('subMenuCommunities', 'Sub Menu Communities');
     register_nav_menu('footerMenuLeft', 'Footer Left Menu');
     register_nav_menu('footerMenuRight', 'Footer Right Menu');
 
@@ -96,12 +117,12 @@ function bca_register_sidebars() {
 		)
 	);
 
-	// Register the left footer widget area "footer-info"
+	// Register the left footer widget area "footer-1"
 	register_sidebar(
 		array(
 			'id'            => 'footer-info',
-			'name'          => __( 'Footer-Info (Left)' ),
-			'description'   => __( 'Footer left widget area "footer-info"' ),
+			'name'          => __( 'Footer #1 (Site Info)' ),
+			'description'   => __( 'Footer first widget area "Footer-Info"' ),
 			'before_widget' => '',
 			'after_widget'  => '',
 			'before_title'  => '<h4>',
@@ -109,12 +130,38 @@ function bca_register_sidebars() {
 		)
 	);
 
-	// Register the right footer widget area "footer-newsletter"
+	// Register the left footer widget area "footer-2"
+	register_sidebar(
+		array(
+			'id'            => 'footer-2',
+			'name'          => __( 'Footer #2' ),
+			'description'   => __( 'Footer second widget area' ),
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '<h4>',
+			'after_title'   => '</h4>'
+		)
+	);
+
+	// Register the left footer widget area "footer-3"
+	register_sidebar(
+		array(
+			'id'            => 'footer-3',
+			'name'          => __( 'Footer #3' ),
+			'description'   => __( 'Footer third widget area' ),
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '<h4>',
+			'after_title'   => '</h4>'
+		)
+	);
+
+	// Register the right footer widget area "footer-4"
 	register_sidebar(
 		array(
 			'id'            => 'footer-newsletter',
-			'name'          => __( 'Footer-Newsletter (Right)' ),
-			'description'   => __( 'Footer right widget area "footer-newsletter"' ),
+			'name'          => __( 'Footer #4 (Newsletter)' ),
+			'description'   => __( 'Footer forth widget area "Footer-Newsletter"' ),
 			'before_widget' => '',
 			'after_widget'  => '',
 			'before_title'  => '<h4>',

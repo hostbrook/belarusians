@@ -12,10 +12,10 @@ get_header();
 <div class="container">
 
     <div class="d-flex justify-content-between align-items-center">
-    <h2>Падзеi</h2>
+    <h2><?php if (lang('en')): ?>Events<?php else :?>Падзеi<?php endif; ?></h2>
     <ol>
-        <li><a href="<?= site_url(); ?>">Галоўная</a></li>
-        <li>Падзеi</li>
+        <li><a href="<?= site_url(); ?>"><?php if (lang('en')): ?>Home<?php else :?>Галоўная<?php endif; ?></a></li>
+        <li><?php if (lang('en')): ?>Events<?php else :?>Падзеi<?php endif; ?></li>
     </ol>
     </div>
 
@@ -72,9 +72,9 @@ get_header();
                             <li><i class="bi bi-geo-alt"></i> <?php the_field('event_location'); ?></li>
                             <li><i class="bi bi-clock"></i> <?= $eventDate->format('F j, Y g:i a'); ?>
                             <?php if ($today > get_field('event_date')): ?>
-                                <span class="badge rounded-pill bg-danger">Event completed!</span>
+                                <span class="badge rounded-pill bg-danger"><?php if (lang('en')): ?>Event completed!<?php else :?>Падзея закончылась.<?php endif; ?></span>
                             <?php endif; ?></li>
-                            <li><i class="bi bi-eye"></i> <?= hb_get_post_view(); ?> Праглядаў</li>
+                            <li><i class="bi bi-eye"></i> <?= hb_get_post_view(); ?> <?php if (lang('en')): ?>Views<?php else :?>Праглядаў.<?php endif; ?></li>
                         </ul>
     
                         <div class="content">
@@ -82,7 +82,7 @@ get_header();
                         </div>
         
                         <div class="read-more mt-auto align-self-end">
-                            <a href="<?php the_permalink(); ?>">Чытаць болей</a>
+                            <a href="<?php the_permalink(); ?>"><?php if (lang('en')): ?>Read more<?php else :?>Чытаць болей<?php endif; ?></a>
                         </div>
 
                     </article>
@@ -91,7 +91,7 @@ get_header();
                 if ($eventsQty == 0) : ?>
 
                 <div class="alert alert-info" role="alert">
-                    На гэты час няма найбліжэйшых падзей.
+                    <?php if (lang('en')): ?>Right now no any upcoming events.<?php else :?>На гэты час няма бліжэйшых падзей.<?php endif; ?>
                 </div>
 
                 <?php endif; ?>
@@ -103,7 +103,7 @@ get_header();
                 <!-- End Pagination -->
                 
                 <div class="mt-5 pt-5 border-top">
-                        <a href="/past-events" class="primary-button">Мінулыя Падзеі <i class="bi bi-arrow-right"></i></a>
+                        <a href="/past-events<?php if (lang('en')): ?>_en<?php endif; ?>" class="primary-button"><?php if (lang('en')): ?>Past events<?php else :?>Мінулыя Падзеі<?php endif; ?> <i class="bi bi-arrow-right"></i></a>
                 </div>
 
             </div>

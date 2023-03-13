@@ -17,24 +17,19 @@
                     </div>
 
                     <div class="col-lg-2 col-md-6 footer-links">
-                        <h4>Суполкі</h4>
-<?php  wp_nav_menu(array( 'theme_location' => 'footerMenuLeft', 'depth' => 1, 'container' => '', 'before' => '<i class="bx bx-chevron-right"></i> ' )); ?>
-                        <!--<ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="https://www.belarusian.ca/be/ottawa-chapter/" target="_blank">Суполка ў Аттаве</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="https://www.belarusian.ca/be/toronto-chapter/" target="_blank">Суполка ў Таронта</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="https://www.facebook.com/groups/260880037671053" target="_blank">Суполка ў Калгары</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="https://www.facebook.com/groups/belbc/" target="_blank">Беларусы ў ВС</a></li>
-                        </ul>-->
+
+                        <!-- Widget area: Footer-Menu (Left) -->
+                        <?php dynamic_sidebar( 'footer-2' ); ?>
+                        <!-- /Widget area -->
+
                     </div>
 
                     <div class="col-lg-2 col-md-6 footer-links">
-                        <h4>Партнёры</h4>
-<?php  wp_nav_menu(array( 'theme_location' => 'footerMenuRight', 'depth' => 1, 'container' => '', 'before' => '<i class="bx bx-chevron-right"></i> ' )); ?>
-                        <!--<ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="http://www.radabnr.org/" target="_blank">Рада БНР</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="https://binim.org" target="_blank">БІНіМ Канады</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="https://ceecouncil.org" target="_blank">CEE Council</a></li>
-                        </ul>-->
+
+                        <!-- Widget area: Footer-Menu (Right) -->
+                        <?php dynamic_sidebar( 'footer-3' ); ?>
+                        <!-- /Widget area -->
+
                     </div>
 
                     <div class="col-lg-4 col-md-6 ">

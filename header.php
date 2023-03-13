@@ -45,7 +45,7 @@
                 <!-- /Widget area -->
             </div>
             <div class="d-flex social-links align-items-center">
-                <a href="/" class="langbar">EN</a> | <a href="/" class="langbar">BE</a>
+                <a href="/en/" class="langbar">EN</a> | <a href="/be/" class="langbar">BE</a>
                 <!-- Widget area: TopBar-Right -->
                 <?php dynamic_sidebar( 'topbar-right' ); ?>
                 <!-- /Widget area -->
@@ -62,8 +62,10 @@
                     <div class="col-md-8 mx-auto py-5">
                         <form method="get" action="<?php echo esc_url(home_url('/')); ?>">
                             <div class="input-group top-search-group">
-                                <input class="form-control rounded-start border-end-0 mb-0" type="text" name="s" autofocus placeholder="Пошук на сайце">
-                                <button type="submit" class="btn btn-grad m-0">Шукаць</button>
+                                <input class="form-control rounded-start border-end-0 mb-0" type="text" name="s" autofocus placeholder="<?php if (lang('en')): ?>Search at the site<?php else :?>Пошук на сайце<?php endif; ?>">
+                                <button type="submit" class="btn btn-grad m-0">
+                                    <?php if (lang('en')): ?>Search<?php else :?>Шукаць<?php endif; ?>
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -82,7 +84,7 @@
 
             <nav id="navbar" class="navbar">
 
-                <?php  //wp_nav_menu(array( 'theme_location' => 'topMenu', 'depth' => 2, 'container' => '' )); 
+                <?php 
                     wp_nav_menu( array(
                         'theme_location'  => 'topMenu',
                         'depth'           => 2, // 1 = no dropdowns, 2 = with dropdowns.
@@ -91,33 +93,13 @@
                         'walker'          => new WP_Bootstrap_Navwalker(),
                     ) );                
                 ?>
-                
-                <?php /*
-                <ul>
-                    <!--<li><a href="<?= site_url(); ?>" <?= is_page('home') ? 'class="active"' : '' ?>>Галоўная</a></li>-->
-                    <li class="dropdown"><a href="#"><span>Хто мы</span> <i class="bi bi-chevron-down"></i></a>
-                        <?php  wp_nav_menu(array( 'theme_location' => 'subMenuAbout', 'depth' => 1, 'container' => '' )); ?>
-                    </li>
-                    <li><a href="/news" <?= is_page('news') ? 'class="active"' : '' ?>>Навіны</a></li>
-                    <li><a href="/events" <?= is_page('events') ? 'class="active"' : '' ?>>Падзеі</a></li>
-                    <li class="dropdown"><a href="#"><span>Праграмы</span> <i class="bi bi-chevron-down"></i></a>
-                        <?php  wp_nav_menu(array( 'theme_location' => 'subMenuPrograms', 'depth' => 1, 'container' => '' )); ?>
-                    </li>
-                    <li class="dropdown"><a href="#"><span>Суполкі</span> <i class="bi bi-chevron-down"></i></a>
-                        <?php  wp_nav_menu(array( 'theme_location' => 'subMenuCommunities', 'depth' => 1, 'container' => '' )); ?>
-                    </li>
-                    
-                    <li class="d-none d-lg-flex"><a class="nav-link" data-bs-toggle="collapse" href="#search-open"><i class="bi bi-search"></i></a></li>
-                    <li><a href="/become-volunteer" class="getstarted">Далучыцца</a></li>
-                </ul>
-                */ ?>
                 <a class="nav-link d-lg-none" style="padding-right:30px;" data-bs-toggle="collapse" href="#search-open"><i class="bi bi-search"></i></a>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
 
             <script>
                 const topMenuUL = document.getElementById("menu-top-menu");
-                topMenuUL.insertAdjacentHTML('beforeend',`<li class="d-none d-lg-flex"><a class="nav-link" data-bs-toggle="collapse" href="#search-open"><i class="bi bi-search"></i></a></li><li><a href="/become-volunteer" class="getstarted">Далучыцца</a></li>`);
+                topMenuUL.insertAdjacentHTML('beforeend',`<li class="d-none d-lg-flex"><a class="nav-link" data-bs-toggle="collapse" href="#search-open"><i class="bi bi-search"></i></a></li><li><a href="/become-volunteer<?php if (lang('en')): ?>_en<?php endif; ?>" class="getstarted"><?php if (lang('en')): ?>Join Us<?php else :?>Далучыцца<?php endif; ?></a></li>`);
             </script>
         </div>
     </header><!-- End Header -->

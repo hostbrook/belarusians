@@ -16,10 +16,10 @@ while(have_posts()) {
     <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-            <h2>Навіны</h2>
+            <h2><?php if (lang('en')): ?>News<?php else :?>Навіны<?php endif; ?></h2>
             <ol>
-                <li><a href="<?= site_url(); ?>">Галоўная</a></li>
-                <li><a href="/news">Навіны</a></li>
+                <li><a href="<?= site_url(); ?>"><?php if (lang('en')): ?>Home<?php else :?>Галоўная<?php endif; ?></a></li>
+                <li><a href="/news"><?php if (lang('en')): ?>News<?php else :?>Навіны<?php endif; ?></a></li>
                 <li><?php the_time('d M, Y'); ?></li>
             </ol>
         </div>
@@ -49,8 +49,8 @@ while(have_posts()) {
                         <ul>
                             <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="#"><?php the_author_posts_link(); ?></a></li>
                             <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><time datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('d M, Y'); ?></time></a></li>
-                            <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="#"><?= get_comments_number(); ?> Каментарыяў</a></li>
-                            <li class="d-flex align-items-center"><i class="bi bi-eye"></i> <a href="#"><?= hb_get_post_view(); ?> Праглядаў</a></li>
+                            <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="#"><?= get_comments_number(); ?> <?php if (lang('en')): ?>Comments<?php else :?>Каментарыяў<?php endif; ?></a></li>
+                            <li class="d-flex align-items-center"><i class="bi bi-eye"></i> <a href="#"><?= hb_get_post_view(); ?> <?php if (lang('en')): ?>Views<?php else :?>Праглядаў<?php endif; ?></a></li>
                         </ul>
                     </div><!-- End meta top -->
     
@@ -94,7 +94,7 @@ while(have_posts()) {
                 </div><!-- End post author -->
     
                 <div class="comments">
-                    <p><strong>Comments are turned off.</strong></p>
+                    <p><strong><?php if (lang('en')): ?>Comments are turned off.<?php else :?>Каментарыi адключаны.<?php endif; ?></strong></p>
                 </div><!-- End blog comments -->
     
             </div>

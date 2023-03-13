@@ -18,7 +18,7 @@
                     <!-- Recent posts -->
                     <div class="sidebar-item recent-posts">
                         <div class="section-title pt-2">
-                            <h2>Навіны</h2>
+                            <h2><?php if (lang('en')): ?>News<?php else :?>Навіны<?php endif; ?></h2>
                         </div>
         
                         <?php 
@@ -41,7 +41,7 @@
                     <!-- Events -->
                     <div class="events">
                         <div class="section-title">
-                            <h2>Падзеі</h2>
+                            <h2><?php if (lang('en')): ?>Events<?php else :?>Падзеі<?php endif; ?></h2>
                         </div>
 
                         <?php
@@ -81,14 +81,15 @@
                                 <li><i class="bi bi-clock"></i> <?= $eventDate->format('F j, Y g:i a'); ?></li>
                             </ul>
                             <p><?= has_excerpt() ? the_excerpt() : wp_trim_words(get_the_content(), 40); ?></p>
-                            <p><a href="<?php the_permalink(); ?>">Чытаць болей <i class="bi bi-arrow-right"></i></a></p>
+                            <p><a href="<?php the_permalink(); ?>"><?php if (lang('en')): ?>Read more<?php else :?>Чытаць болей<?php endif; ?> <i class="bi bi-arrow-right"></i></a></p>
                         </div>
                         <?php endwhile; ?>
                         
                         <?php if ($eventsdoNotExist) : ?>
 
                             <div class="alert alert-info" role="alert">
-                                На гэты час няма бліжэйшых падзей.
+                                <?php if (lang('en')): ?>Right now no any upcoming events.<?php else :?>На гэты час няма бліжэйшых падзей.<?php endif; ?>
+                                
                             </div>
 
                         <?php endif; ?>
@@ -98,14 +99,15 @@
                     <!-- Tags -->
                     <div class="sidebar-item tags">
                         <div class="section-title">
-                            <h2>Важкiя Тэгі</h2>
+                            <h2><?php if (lang('en')): ?>Tags<?php else :?>Важкiя Тэгі<?php endif; ?></h2>
                         </div>
                         <ul class="mt-3">
                         <?php
                             $tags = get_tags([
                                 'number' => 20,
                                 'orderby' => 'count', 
-                                'order' => 'DESC'
+                                'order' => 'DESC',
+                                'lang' => 'en,be'
                             ]);
                             if ( $tags ) :
                                 foreach ( $tags as $tag ) : ?>

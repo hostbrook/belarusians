@@ -12,10 +12,10 @@ get_header();
 <div class="container">
 
     <div class="d-flex justify-content-between align-items-center">
-    <h2>Пошук</h2>
+    <h2><?php if (lang('en')): ?>Search<?php else :?>Пошук<?php endif; ?></h2>
     <ol>
-        <li><a href="<?= site_url(); ?>">Галоўная</a></li>
-        <li>Пошук</li>
+        <li><a href="<?= site_url(); ?>"><?php if (lang('en')): ?>Home<?php else :?>Галоўная<?php endif; ?></a></li>
+        <li><?php if (lang('en')): ?>Search<?php else :?>Пошук<?php endif; ?></li>
     </ol>
     </div>
 
@@ -42,7 +42,7 @@ get_header();
                                     placeholder="Пошук на сайце" 
                                     value="<?php echo get_search_query(); ?>"
                                 >
-                                <button type="submit" class="btn btn-grad m-0">Шукаць</button>
+                                <button type="submit" class="btn btn-grad m-0"><?php if (lang('en')): ?>Search<?php else :?>Шукаць<?php endif; ?></button>
                             </div>
                         </form>
                     </div>
@@ -52,13 +52,14 @@ get_header();
 
                 <?php if (!have_posts()) : ?>
                 <div class="alert alert-danger" role="alert">
-                    Sorry, but nothing matched your search terms.
+                    <?php if (lang('en')): ?>Sorry, but nothing matched your search terms.<?php else :?>Прабачце, але нішто не адпавядала вашым умовам пошуку.<?php endif; ?>
+                    
                 </div>
                 <?php else : 
                     global $wp_query;
                     ?>
                 <div class="alert alert-primary mb-5" role="alert">
-                    <?php echo $wp_query->found_posts; ?> posts matched your search terms
+                    <?php echo $wp_query->found_posts; ?> <?php if (lang('en')): ?>posts matched your search terms<?php else :?>артыкулаў, якія адпавядаюць вашым умовам пошуку<?php endif; ?>
                 </div>
                 
                 <!-- Search results -->
@@ -84,7 +85,7 @@ get_header();
                             <div class="meta-top">
                                 <ul>
                                     <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2022-01-01"><?php the_time('d M, Y'); ?></time></a></li>
-                                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html"><?= get_comments_number(); ?> Каментарыяў</a></li>
+                                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html"><?= get_comments_number(); ?> <?php if (lang('en')): ?>Comments<?php else :?>Каментарыяў<?php endif; ?></a></li>
                                 </ul>
                             </div>
         
@@ -93,7 +94,7 @@ get_header();
                             </div>
             
                             <div class="read-more mt-auto align-self-end">
-                                <a href="<?php the_permalink(); ?>">Чытаць болей</a>
+                                <a href="<?php the_permalink(); ?>"><?php if (lang('en')): ?>Read more<?php else :?>Чытаць болей<?php endif; ?></a>
                             </div>
     
                         </article>
