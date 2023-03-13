@@ -98,8 +98,20 @@
             </nav><!-- .navbar -->
 
             <script>
+                /*
                 const topMenuUL = document.getElementById("menu-top-menu");
                 topMenuUL.insertAdjacentHTML('beforeend',`<li class="d-none d-lg-flex"><a class="nav-link" data-bs-toggle="collapse" href="#search-open"><i class="bi bi-search"></i></a></li><li><a href="/become-volunteer<?php if (lang('en')): ?>_en<?php endif; ?>" class="getstarted"><?php if (lang('en')): ?>Join Us<?php else :?>Далучыцца<?php endif; ?></a></li>`);
+                */
+                const topMenuNavbar = document.getElementById("navbar");
+                for (var i = 0; i < topMenuNavbar.childNodes.length; i++)
+                {
+                    var child = topMenuNavbar.childNodes[i];
+                    var childId = topMenuNavbar.childNodes[i].id;
+                    if (typeof(childId) !== 'undefined' && child.className == 'menu') break;
+                }
+                const topMenuUL = document.getElementById(childId);
+                topMenuUL.insertAdjacentHTML('beforeend',`<li class="d-none d-lg-flex"><a class="nav-link" data-bs-toggle="collapse" href="#search-open"><i class="bi bi-search"></i></a></li><li><a href="/become-volunteer<?php if (lang('en')): ?>_en<?php endif; ?>" class="getstarted"><?php if (lang('en')): ?>Join Us<?php else :?>Далучыцца<?php endif; ?></a></li>`);
+
             </script>
         </div>
     </header><!-- End Header -->

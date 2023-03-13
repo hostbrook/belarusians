@@ -117,7 +117,7 @@ get_header(); ?>
                                     </div>
                                     <h3 class="post-title"><?php the_title(); ?></h3>
                                     <?= has_excerpt() ? the_excerpt() : wp_trim_words(get_the_content(), 20); ?>
-                                    <a href="<?php the_permalink(); ?>" class="readmore stretched-link"><span>Чытаць болей</span><i class="bi bi-arrow-right"></i></a>
+                                    <a href="<?php the_permalink(); ?>" class="readmore stretched-link"><span><?php if (lang('en')): ?>Read more<?php else :?>Чытаць болей<?php endif; ?></span><i class="bi bi-arrow-right"></i></a>
                                 </div>
                             </div>
                             <?php endwhile; ?>

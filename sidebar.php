@@ -22,7 +22,7 @@
                         </div>
         
                         <?php 
-                            $query = new WP_Query(['post_type'=>'post', 'posts_per_page' => '5']);
+                            $query = new WP_Query(['post_type'=>'post', 'posts_per_page' => '5', 'lang' => 'be,en']);
                             while ($query->have_posts()) :
                                 $query->the_post();
                         ?>
