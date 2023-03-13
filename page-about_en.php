@@ -1,6 +1,6 @@
 <?php
 /**
- * Template to show page "About - BE"
+ * Template to show page "About - EN"
  */
 get_header();
 
