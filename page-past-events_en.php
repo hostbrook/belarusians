@@ -1,6 +1,6 @@
 <?php
 /**
- * Template to show all past events - BE
+ * Template to show all past events - EN
  */
 get_header();
 ?>

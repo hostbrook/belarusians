@@ -1,6 +1,6 @@
 <?php
 /**
- * Template to show page "About"
+ * Template to show page "Contacts - BE"
  */
 get_header();
 
@@ -16,7 +16,7 @@ while(have_posts()) {
         <div class="d-flex justify-content-between align-items-center">
         <h2><?php the_title(); ?></h2>
         <ol>
-            <li><a href="<?= site_url(); ?>"><?php if (lang('en')): ?>Home<?php else :?>Галоўная<?php endif; ?></a></li>
+            <li><a href="<?= site_url(); ?>">Галоўная</a></li>
             <li><?php the_title(); ?></li>
         </ol>
         </div>
